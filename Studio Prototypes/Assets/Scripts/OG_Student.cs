@@ -27,7 +27,7 @@ public class OG_Student : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, Classes[i].transform.position, fl_speed * Time.deltaTime);
         }
 
-       
-		
-	}
+
+
+    }
 }
