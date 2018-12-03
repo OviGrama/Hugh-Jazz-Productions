@@ -20,15 +20,17 @@ public class OG_DisplayUIonMouseHover : MonoBehaviour {
 
     }
 
-    private void OnMouseOver()
+    private void OnMouseDown()
     {
-        bl_displayStats = true;
+        if(bl_displayStats) bl_displayStats = false;
+
+        else bl_displayStats = true;
     }
 
-    private void OnMouseExit()
-    {
-        bl_displayStats = false;
-    }
+    //private void OnMouseUp()
+    //{
+    //    bl_displayStats = false;
+    //}
 
     void DisplayStats()
     {
