@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OG_DisplayUIonMouseHover : MonoBehaviour {
+public class OG_EnableUIonMouseClick : MonoBehaviour
+{
     public float fl_fadetime;
     public Canvas canvas;
     public bool bl_displayStats;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         canvas = GameObject.Find("Stats").GetComponent<Canvas>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         DisplayStats();
 
 
@@ -22,7 +25,7 @@ public class OG_DisplayUIonMouseHover : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        if(bl_displayStats) bl_displayStats = false;
+        if (bl_displayStats) bl_displayStats = false;
 
         else bl_displayStats = true;
     }
