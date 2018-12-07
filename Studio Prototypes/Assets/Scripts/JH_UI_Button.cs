@@ -24,7 +24,7 @@ public class JH_UI_Button : MonoBehaviour {
         else
         {
             
-            for (int i = 0; i < uiPanel.transform.parent.childCount; i++)
+            for (int i = 0; i < uiPanel.transform.parent.childCount + 1; i++)
             {
                 if (transform.parent.GetChild(i).GetComponent<JH_UI_Button>() != null)
                 {
