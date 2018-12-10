@@ -54,5 +54,6 @@ public class OG_PauseMenu : MonoBehaviour {
     public void QuitGame()
     {
         Debug.Log("Game Terminated");
+        Application.Quit();
     }
 }
