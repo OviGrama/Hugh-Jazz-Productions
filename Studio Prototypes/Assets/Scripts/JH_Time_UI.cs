@@ -43,10 +43,11 @@ public class JH_Time_UI : MonoBehaviour {
         bl_progressTime = false;
         yield return new WaitForSeconds(fl_timeSpeed);
         in_currentTime++;
-        if (in_currentTime == 18) in_currentTime = 7;
+        if (in_currentTime == 21) in_currentTime = 7;
         bl_progressTime = true;
     }
 
+    // Changes the current day
     void ChangeDay()
     {
         if (go_classManager.GetComponent<JH_Class_Manager>().currentClass == 0)
@@ -78,6 +79,7 @@ public class JH_Time_UI : MonoBehaviour {
         tx_time.text = in_currentTime.ToString() + ":00";
     }
 
+    // Changes the active class
     void ChangeClass()
     {
         if (bl_changeClass && in_currentTime == 12)
@@ -95,5 +97,25 @@ public class JH_Time_UI : MonoBehaviour {
         }
 
         if (in_currentTime == 8) bl_changeClass = true;
+
+        if (in_currentTime >= 18) go_classManager.GetComponent<JH_Class_Manager>().bl_homeTime = true;
+        else go_classManager.GetComponent<JH_Class_Manager>().bl_homeTime = false;
+    }
+
+    public void PauseTime()
+    {
+        if (Time.timeScale == 0) Time.timeScale = 1;
+        else Time.timeScale = 0;
+    }
+
+    public void NormalTime()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void DoubleTime()
+    {
+        if (Time.timeScale != 2) Time.timeScale = 2;
+        else Time.timeScale = 1;
     }
 }
