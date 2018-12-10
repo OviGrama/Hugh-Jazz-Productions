@@ -23,13 +23,17 @@ public class JH_Student_Move : MonoBehaviour {
     {
         if (go_classManager.GetComponent<JH_Class_Manager>().ClassList[
             go_classManager.GetComponent<JH_Class_Manager>().currentClass]
-            != null)
+            != null && !go_classManager.GetComponent<JH_Class_Manager>().bl_homeTime)
         {
             nv_student.destination = new Vector3(go_classManager.GetComponent<JH_Class_Manager>().ClassList[
             go_classManager.GetComponent<JH_Class_Manager>().currentClass].transform.position.x, 
             transform.position.y, go_classManager.GetComponent<JH_Class_Manager>().ClassList[
             go_classManager.GetComponent<JH_Class_Manager>().currentClass].transform.position.z);
 
+        }
+        else
+        {
+            nv_student.destination = go_classManager.GetComponent<JH_Class_Manager>().home.transform.position;
         }
     }
 

@@ -9,8 +9,10 @@ public class JH_Class_Manager : MonoBehaviour {
     public GameObject scienceRoom;
     public GameObject sportRoom;
     public GameObject superRoom;
+    public GameObject home;
 
     public int currentClass;
+    public bool bl_homeTime;
 
     public GameObject[] ClassList;
 
