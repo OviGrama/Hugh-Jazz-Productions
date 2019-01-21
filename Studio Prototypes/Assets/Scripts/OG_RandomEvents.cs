@@ -6,6 +6,7 @@ public class OG_RandomEvents : MonoBehaviour {
 
     private OG_Alignment alignment;
     public bool bl_goodSchool;
+    private bool bl_coroutinestart = true;
     public Canvas[] GoodSchoolEvents;
     public Canvas[] BadSchoolEvents;
 
@@ -25,8 +26,11 @@ public class OG_RandomEvents : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (bl_coroutinestart)
+        {
+            StartCoroutine(EventTrigger());
+        }
 
-        StartCoroutine(EventTrigger());
 		
 	}
 
@@ -45,6 +49,7 @@ public class OG_RandomEvents : MonoBehaviour {
 
     IEnumerator EventTrigger()
     {
+        bl_coroutinestart = false;
         yield return new WaitForSeconds(120f);
         if (bl_goodSchool)
         {
@@ -54,5 +59,7 @@ public class OG_RandomEvents : MonoBehaviour {
         {
             EnableBadEvent();
         }
+
+        bl_coroutinestart = true;
     }
 }
