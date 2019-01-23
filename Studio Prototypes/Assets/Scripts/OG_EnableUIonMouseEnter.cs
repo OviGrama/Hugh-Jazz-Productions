@@ -12,15 +12,14 @@ public class OG_EnableUIonMouseEnter : MonoBehaviour, IPointerEnterHandler, IPoi
     // Use this for initialization
     void Start()
     {
-        canvas = GameObject.Find("StudentInfo").GetComponent<Canvas>();
+        //canvas = GameObject.Find("Info").GetComponent<Canvas>();
     }
 
     // Update is called once per frame
     void Update()
     {
         DisplayStats();
-
-
+        OnMouseClick();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -34,6 +33,14 @@ public class OG_EnableUIonMouseEnter : MonoBehaviour, IPointerEnterHandler, IPoi
     public void OnPointerExit(PointerEventData eventData)
     {
         if(bl_displayStats)
+        {
+            bl_displayStats = false;
+        }
+    }
+
+    public void OnMouseClick()
+    {
+        if (bl_displayStats && Input.GetButtonDown("Fire1"))
         {
             bl_displayStats = false;
         }

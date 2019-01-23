@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class OG_Alignment : MonoBehaviour {
+    public float fl_Allignment;
 
     public float fl_CurrentAlignment { get; set; }
     public float fl_MaxAlignment { get; set; }
@@ -13,15 +14,23 @@ public class OG_Alignment : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         fl_MaxAlignment = 100f;
-        fl_CurrentAlignment =Random.Range(0, fl_MaxAlignment);
+        //fl_CurrentAlignment =Random.Range(0, fl_MaxAlignment);
+        fl_Allignment = 60f; 
 
-        sl_AlignmentBar.value = SetAlignment();
+    
 		
 	}
-	
+
+    private void Update()
+    {
+        sl_AlignmentBar.value = SetAlignment();
+    }
+
 
     float SetAlignment()
     {
-        return fl_CurrentAlignment / fl_MaxAlignment;
+        //return fl_CurrentAlignment / fl_MaxAlignment;
+        return fl_Allignment / fl_MaxAlignment;
+        
     }
 }

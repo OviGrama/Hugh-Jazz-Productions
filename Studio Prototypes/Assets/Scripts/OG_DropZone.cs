@@ -16,8 +16,7 @@ public class OG_DropZone : MonoBehaviour, IDropHandler {
 
     void Update()
     {
-        if (anim_text.GetBool("isActive")) ClassChangePanel.SetActive(true);
-        else ClassChangePanel.SetActive(false);
+
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -33,13 +32,19 @@ public class OG_DropZone : MonoBehaviour, IDropHandler {
                     if (transform.GetChild(i).GetComponent<OG_Draggable>() != null)
                     {
                         transform.GetChild(i).transform.parent = GameObject.Find("Calendar Classes Panel").transform;
-                        anim_text.SetBool("isActive", true);
-
+                        ClassChangePanel.gameObject.SetActive(true);
+                        StartCoroutine(FlaseSwitch());
                     }
                 }
                 draggable.originalParent = this.transform;
             }
         }
+    }
+
+    IEnumerator FlaseSwitch()
+    {
+        yield return new WaitForSeconds (1f);
+        ClassChangePanel.gameObject.SetActive(false);
     }
 
 }
