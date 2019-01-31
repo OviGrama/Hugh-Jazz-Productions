@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class OG_EnableUIonMouseEnter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
 
-    public float fl_fadetime;
     public Canvas canvas;
     public bool bl_displayStats;
 
@@ -47,11 +46,6 @@ public class OG_EnableUIonMouseEnter : MonoBehaviour, IPointerEnterHandler, IPoi
     }
 
 
-
-    //private void OnMouseUp()
-    //{
-    //    bl_displayStats = false;
-    //}
 
     void DisplayStats()
     {
