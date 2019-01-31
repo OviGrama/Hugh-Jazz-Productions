@@ -5,23 +5,40 @@ using UnityEngine.UI;
 
 public class OG_EnableUIonMouseClick : MonoBehaviour
 {
-    public float fl_fadetime;
     public Canvas canvas;
-    public bool bl_displayStats;
+    public bool bl_displayStats = false;
 
     // Use this for initialization
     void Start()
     {
-        canvas = GameObject.Find("Stats").GetComponent<Canvas>();
+        //canvas = GameObject.Find("Stats").GetComponent<Canvas>();
+
+        canvas = GetComponentInChildren<Canvas>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        DisplayStats();
-
-
+        //OnMouseClick();
+        DisplayStats();       
     }
+
+
+    //public void OnMouseClick()
+    //{
+    //    if (!bl_displayStats && Input.GetButtonDown("Fire1"))
+    //    {
+    //        bl_displayStats = true;
+    //    }
+    //}
+
+    //public void OnMouseCloseButtonClick()
+    //{
+    //    if (bl_displayStats && Input.GetButtonDown("Fire1"))
+    //    {
+    //        bl_displayStats = false;
+    //    }
+    //}
 
     private void OnMouseDown()
     {
@@ -41,7 +58,7 @@ public class OG_EnableUIonMouseClick : MonoBehaviour
         {
             canvas.enabled = true;
         }
-        else
+        if(!bl_displayStats)
         {
             canvas.enabled = false;
         }
