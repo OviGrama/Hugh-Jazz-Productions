@@ -29,6 +29,7 @@ public class JH_Time_UI : MonoBehaviour {
         go_classManager = GameObject.Find("Main Camera");
         tx_days = transform.GetChild(0).GetComponent<Text>();
         tx_time = transform.GetChild(1).GetComponent<Text>();
+        PauseTime();
 	}
 	
 	// Update is called once per frame
