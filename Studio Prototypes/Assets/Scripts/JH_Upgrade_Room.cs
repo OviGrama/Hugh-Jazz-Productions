@@ -5,6 +5,7 @@ using UnityEngine;
 public class JH_Upgrade_Room : MonoBehaviour
 {
     public GameObject upgradePanel;
+    [HideInInspector] public GameObject selectedRoom;
     private bool upgradingRoom;
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class JH_Upgrade_Room : MonoBehaviour
         {
             upgradePanel.SetActive(false);
             upgradingRoom = false;
+            selectedRoom = null;
         }
         else
         {
@@ -39,6 +41,8 @@ public class JH_Upgrade_Room : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
+            selectedRoom = hit.collider.gameObject;
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (hit.collider.gameObject.GetComponent<JH_Class_Main>() != null)
