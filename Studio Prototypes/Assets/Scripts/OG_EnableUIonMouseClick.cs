@@ -19,18 +19,21 @@ public class OG_EnableUIonMouseClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //OnMouseClick();
+        OnMouseClick();
         DisplayStats();       
     }
 
 
-    //public void OnMouseClick()
-    //{
-    //    if (!bl_displayStats && Input.GetButtonDown("Fire1"))
-    //    {
-    //        bl_displayStats = true;
-    //    }
-    //}
+    public void OnMouseClick()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (bl_displayStats) bl_displayStats = false;
+            else bl_displayStats = true;
+        }
+        
+
+    }
 
     //public void OnMouseCloseButtonClick()
     //{
