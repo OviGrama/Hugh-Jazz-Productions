@@ -8,6 +8,7 @@ public class OG_StudentInfo : MonoBehaviour
     [Header("Student Look")]
     public Sprite[] StudentsFaces;
     private int in_Random;
+    public Image StudentFace;
 
     [Header("Student Name")]
     public string[] StudentsNamesList;
@@ -62,8 +63,9 @@ public class OG_StudentInfo : MonoBehaviour
 
     //void StudentLook()
     //{
+
     //    in_Random = Random.Range(0, StudentsFaces.Length);
-    //    GetComponent<SpriteRenderer>().sprite = StudentsFaces[in_Random];
+    //    StudentFace.sprite = StudentsFaces[in_Random];
     //}
 
     void StudentName()

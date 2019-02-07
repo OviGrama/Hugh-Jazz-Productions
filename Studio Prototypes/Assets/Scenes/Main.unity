@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2344,7 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.89639145, g: 1, b: 0.2980392, a: 0.85882354}
+  m_Color: {r: 0.8, g: 1, b: 0.8, a: 0.85882354}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4277,7 +4277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22346377, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.2784314, g: 0.36078432, b: 0.42352942, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5003,7 +5003,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Alignment
+  m_Text: Moral Alignment
 --- !u!222 &112636163
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5048,7 +5048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66, y: -141.4}
+  m_AnchoredPosition: {x: 66, y: -150}
   m_SizeDelta: {x: 0, y: -0.26000977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112996567
@@ -7200,7 +7200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09620863, g: 0.6808288, b: 0.8867924, a: 1}
+  m_Color: {r: 0.8862745, g: 0.86216396, b: 0.09803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11150,7 +11150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09620863, g: 0.6808288, b: 0.8867924, a: 1}
+  m_Color: {r: 0.8862745, g: 0.50415474, b: 0.09803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24970,7 +24970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -28220,7 +28220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7294118, g: 0.8958226, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -30435,12 +30435,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9528302, g: 0.8707949, b: 0.022472408, a: 1}
-    m_HighlightedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_PressedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.46858314, g: 0.8404584, b: 0.8490566, a: 1}
+    m_HighlightedColor: {r: 0.2784314, g: 0.46274513, b: 0.5647059, a: 1}
+    m_PressedColor: {r: 0.6606889, g: 0.8133992, b: 0.9528302, a: 1}
+    m_DisabledColor: {r: 0.31238878, g: 0.558273, b: 0.5660378, a: 0.45490196}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.4
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -32721,7 +32721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22218315, g: 0.990566, b: 0, a: 1}
+  m_Color: {r: 0.8, g: 1, b: 0.8, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -33356,7 +33356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09620863, g: 0.6808288, b: 0.8867924, a: 1}
+  m_Color: {r: 0.8862745, g: 0.86216396, b: 0.09803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -36653,7 +36653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -48922,7 +48922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -49159,7 +49159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -52285,7 +52285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09620863, g: 0.6808288, b: 0.8867924, a: 1}
+  m_Color: {r: 0.6784314, g: 0.5686275, b: 0.8666667, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -53742,12 +53742,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9528302, g: 0.8707949, b: 0.022472408, a: 1}
-    m_HighlightedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_PressedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.46858314, g: 0.8404584, b: 0.8490566, a: 1}
+    m_HighlightedColor: {r: 0.2784314, g: 0.46274513, b: 0.5647059, a: 1}
+    m_PressedColor: {r: 0.6606889, g: 0.8133992, b: 0.9528302, a: 1}
+    m_DisabledColor: {r: 0.31238878, g: 0.558273, b: 0.5660378, a: 0.45490196}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.4
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -62082,7 +62082,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Vilain
+  m_Text: Villain
 --- !u!222 &1189223508
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62225,7 +62225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -67506,7 +67506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09620863, g: 0.6808288, b: 0.8867924, a: 1}
+  m_Color: {r: 0.6777404, g: 0.5690637, b: 0.8679245, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -73116,12 +73116,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9528302, g: 0.8707949, b: 0.022472408, a: 1}
-    m_HighlightedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_PressedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.46858314, g: 0.8404584, b: 0.8490566, a: 1}
+    m_HighlightedColor: {r: 0.2784314, g: 0.46274513, b: 0.5647059, a: 1}
+    m_PressedColor: {r: 0.6606889, g: 0.8133992, b: 0.9528302, a: 1}
+    m_DisabledColor: {r: 0.31238878, g: 0.558273, b: 0.5660378, a: 0.45490196}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.4
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -73690,7 +73690,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Alignment
+  m_Text: Moral Alignment
 --- !u!222 &1402549814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75290,6 +75290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StudentsFaces: []
+  StudentFace: {fileID: 0}
   StudentsNamesList:
   - Mark Harrison
   - Jessica Pearson
@@ -78415,12 +78416,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9528302, g: 0.8707949, b: 0.022472408, a: 1}
-    m_HighlightedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_PressedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_DisabledColor: {r: 0.91372555, g: 0.8352942, b: 0.023529414, a: 0.26666668}
+    m_NormalColor: {r: 0.46858314, g: 0.8404584, b: 0.8490566, a: 1}
+    m_HighlightedColor: {r: 0.2784314, g: 0.46274513, b: 0.5647059, a: 1}
+    m_PressedColor: {r: 0.6606889, g: 0.8133992, b: 0.9528302, a: 1}
+    m_DisabledColor: {r: 0.31238878, g: 0.558273, b: 0.5660378, a: 0.45490196}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.4
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -81276,7 +81277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -82532,6 +82533,7 @@ GameObject:
   - component: {fileID: 1576373623}
   - component: {fileID: 1576373622}
   - component: {fileID: 1576373624}
+  - component: {fileID: 1576373625}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -82575,7 +82577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -82607,9 +82609,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576373620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c817fe447b9572d428c8371d91454889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 906164600}
+  bl_displayStats: 0
+--- !u!114 &1576373625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576373620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a676c2302ee3b64ea64c607926114a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 906164600}
@@ -91099,7 +91115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22633743, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.2784314, g: 0.36078432, b: 0.42352942, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -93107,7 +93123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.89639145, g: 1, b: 0.2980392, a: 0.85882354}
+  m_Color: {r: 0.8, g: 1, b: 0.8, a: 0.85882354}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -94051,6 +94067,7 @@ GameObject:
   - component: {fileID: 1788896161}
   - component: {fileID: 1788896160}
   - component: {fileID: 1788896159}
+  - component: {fileID: 1788896163}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -94105,7 +94122,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 117, y: 20}
   m_EdgeRadius: 0
 --- !u!114 &1788896160
 MonoBehaviour:
@@ -94115,7 +94132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788896157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c817fe447b9572d428c8371d91454889, type: 3}
   m_Name: 
@@ -94136,7 +94153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87843144, g: 0.80392164, b: 0.023529414, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -94161,6 +94178,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788896157}
   m_CullTransparentMesh: 0
+--- !u!114 &1788896163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788896157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a676c2302ee3b64ea64c607926114a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1674438793}
+  bl_displayStats: 0
 --- !u!1 &1792923838
 GameObject:
   m_ObjectHideFlags: 0
@@ -97166,7 +97197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09620863, g: 0.6808288, b: 0.8867924, a: 1}
+  m_Color: {r: 0.8862745, g: 0.50415474, b: 0.09803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -99697,7 +99728,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Vilain
+  m_Text: Villain
 --- !u!222 &1891127752
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -106805,12 +106836,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9528302, g: 0.8707949, b: 0.022472408, a: 1}
-    m_HighlightedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_PressedColor: {r: 0.8901961, g: 0.45490196, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.46858314, g: 0.8404584, b: 0.8490566, a: 1}
+    m_HighlightedColor: {r: 0.2784314, g: 0.46274513, b: 0.5647059, a: 1}
+    m_PressedColor: {r: 0.6606889, g: 0.8133992, b: 0.9528302, a: 1}
+    m_DisabledColor: {r: 0.31238878, g: 0.558273, b: 0.5660378, a: 0.45490196}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.4
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -107361,6 +107392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StudentsFaces: []
+  StudentFace: {fileID: 0}
   StudentsNamesList:
   - Mark Harrison
   - Jessica Pearson
