@@ -7,7 +7,7 @@ public class OG_RandomEvents : MonoBehaviour {
     public float fl_ConditionalEventTimer;
     public float fl_StandardEventTimer;
 
-    private OG_Alignment alignment;
+    private OG_StudentInfo alignment;
 
     public bool bl_goodSchool;
     private bool bl_CondCoroutineStart = true;
@@ -20,7 +20,7 @@ public class OG_RandomEvents : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        alignment = GameObject.Find("Student").GetComponent<OG_Alignment>();
+        alignment = GameObject.Find("Student").GetComponent<OG_StudentInfo>();
 
         for (int i = 0; i < GoodSchoolEvents.Length; i++)
         {
