@@ -25,7 +25,7 @@ public class JH_UI_Button : MonoBehaviour {
         else
         {
             
-            for (int i = 0; i < uiPanel.transform.parent.childCount; i++)
+            for (int i = 0; i < transform.parent.childCount; i++)
             {
                 if (transform.parent.GetChild(i).GetComponent<JH_UI_Button>() != null)
                 {
@@ -34,6 +34,7 @@ public class JH_UI_Button : MonoBehaviour {
                         transform.parent.GetChild(i).gameObject.GetComponent<JH_UI_Button>().openPanel = false;
                     }
                 }
+                Debug.Log("Checked: " + transform.parent.GetChild(i));
             }
             openPanel = true;
         }
