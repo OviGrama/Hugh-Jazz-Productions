@@ -23,7 +23,7 @@ public class JH_Camera_Move : MonoBehaviour {
 
     void MoveCamera()
     {
-        Vector3 moveCamera = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Input.GetAxis("Mouse ScrollWheel"));
+        Vector3 moveCamera = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), Input.GetAxis("Mouse ScrollWheel"));
         transform.Translate(moveCamera);
 
         if (transform.position.x > fl_xPosMax) transform.position = new Vector3(fl_xPosMax, transform.position.y, transform.position.z);

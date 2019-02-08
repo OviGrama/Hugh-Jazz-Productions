@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class JH_Upgrade_Room : MonoBehaviour
 {
+    // Upgrade menus
     public GameObject upgradePanel;
+    public GameObject upgradeBuildingPanel;
+
     [HideInInspector] public GameObject selectedRoom;
     private bool upgradingRoom;
 
@@ -35,6 +38,30 @@ public class JH_Upgrade_Room : MonoBehaviour
         }
     }
 
+    public void CloseUpgradePanels()
+    {
+        upgradePanel.SetActive(false);
+    }
+
+    public void UpgradeBuildingMenu()
+    {
+        if (upgradeBuildingPanel.activeInHierarchy)
+        {
+            upgradeBuildingPanel.SetActive(false);
+        }
+        else
+        {
+            for (int i = 0; i < upgradeBuildingPanel.transform.parent.childCount; i++)
+            {
+                if (upgradeBuildingPanel.transform.parent.GetChild(i) != upgradeBuildingPanel)
+                {
+                    upgradeBuildingPanel.transform.parent.GetChild(i).gameObject.SetActive(false);
+                }
+            }
+            upgradeBuildingPanel.SetActive(true);
+        }
+    }
+
     void ClickToUpgrade()
     {
         RaycastHit hit;
@@ -50,8 +77,13 @@ public class JH_Upgrade_Room : MonoBehaviour
                     hit.collider.gameObject.GetComponent<JH_Class_Main>().UpgradeRoom();
                     UpgradeRoom();
                 }
-                else UpgradeRoom();
             }
         }
+    }
+
+    public void CloseAllUpgrades()
+    {
+        upgradePanel.SetActive(false);
+        upgradeBuildingPanel.SetActive(false);
     }
 }

@@ -10,28 +10,38 @@ public class OG_Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        if (!GameObject.Find("Calendar Panel").GetComponent<JH_Check_Timetable>().bl_isSaved)
+        {
 
-        originalParent = transform.parent;
-        transform.SetParent(transform.parent.parent);
+            Debug.Log("OnBeginDrag");
 
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
+            originalParent = transform.parent;
+            transform.SetParent(transform.parent.parent);
+
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-
-        transform.position = eventData.position;
+        if (!GameObject.Find("Calendar Panel").GetComponent<JH_Check_Timetable>().bl_isSaved)
+        {
+            transform.position = eventData.position;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
 
-        transform.SetParent(originalParent);
+        if (!GameObject.Find("Calendar Panel").GetComponent<JH_Check_Timetable>().bl_isSaved)
+        {
+            Debug.Log("OnEndDrag");
 
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
+            transform.SetParent(originalParent);
+
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
     }
 
 

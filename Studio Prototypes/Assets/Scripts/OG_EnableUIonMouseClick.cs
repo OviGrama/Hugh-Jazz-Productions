@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class OG_EnableUIonMouseClick : MonoBehaviour
+public class OG_EnableUIonMouseClick : MonoBehaviour, IPointerClickHandler
 {
     public Canvas canvas;
     public bool bl_displayStats = false;
@@ -19,19 +20,29 @@ public class OG_EnableUIonMouseClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnMouseClick();
         DisplayStats();       
     }
 
 
-    public void OnMouseClick()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (bl_displayStats) bl_displayStats = false;
+        else
         {
-            if (bl_displayStats) bl_displayStats = false;
-            else bl_displayStats = true;
+            
+            for (int i = 0; i < transform.parent.childCount; i++)
+            {
+                if (transform.parent.GetChild(i) != gameObject)
+                {
+                    if (transform.parent.GetChild(i).GetComponent<OG_EnableUIonMouseClick>() != null)
+                    {
+                        transform.parent.GetChild(i).GetComponent<OG_EnableUIonMouseClick>().bl_displayStats = false;
+                    }
+                }
+            }
+            bl_displayStats = true;
         }
-        
+      
 
     }
 

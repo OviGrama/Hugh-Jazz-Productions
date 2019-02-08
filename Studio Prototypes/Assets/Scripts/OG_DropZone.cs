@@ -11,7 +11,7 @@ public class OG_DropZone : MonoBehaviour, IDropHandler {
 
     private void Start()
     {
-        ClassChangePanel.gameObject.SetActive(false);
+        //ClassChangePanel.gameObject.SetActive(false);
     }
 
     void Update()
@@ -21,22 +21,25 @@ public class OG_DropZone : MonoBehaviour, IDropHandler {
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log(eventData.pointerDrag.name +  " dropped on " + gameObject.name);
-
-        OG_Draggable draggable = eventData.pointerDrag.GetComponent<OG_Draggable>();
+        if (!GameObject.Find("Calendar Panel").GetComponent<JH_Check_Timetable>().bl_isSaved)
         {
-            if(draggable != null)
+            Debug.Log(eventData.pointerDrag.name + " dropped on " + gameObject.name);
+
+            OG_Draggable draggable = eventData.pointerDrag.GetComponent<OG_Draggable>();
             {
-                for (int i = 0; i < transform.childCount; i++)
+                if (draggable != null)
                 {
-                    if (transform.GetChild(i).GetComponent<OG_Draggable>() != null)
+                    for (int i = 0; i < transform.childCount; i++)
                     {
-                        transform.GetChild(i).transform.parent = GameObject.Find("Calendar Classes Panel").transform;
-                        ClassChangePanel.gameObject.SetActive(true);
-                        StartCoroutine(FlaseSwitch());
+                        if (transform.GetChild(i).GetComponent<OG_Draggable>() != null)
+                        {
+                            transform.GetChild(i).transform.parent = GameObject.Find("Calendar Classes Panel").transform;
+                            //ClassChangePanel.gameObject.SetActive(true);
+                            //StartCoroutine(FlaseSwitch());
+                        }
                     }
+                    draggable.originalParent = this.transform;
                 }
-                draggable.originalParent = this.transform;
             }
         }
     }
