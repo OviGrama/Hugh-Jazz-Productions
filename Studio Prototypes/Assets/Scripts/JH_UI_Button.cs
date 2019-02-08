@@ -18,6 +18,7 @@ public class JH_UI_Button : MonoBehaviour {
         else uiPanel.SetActive(false);  
 	}
 
+    // Opens UI panels while closing other open panels
     public void ToggleUI()
     {
         if (openPanel) openPanel = false;

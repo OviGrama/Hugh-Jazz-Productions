@@ -17,6 +17,7 @@ public class JH_Time_UI : MonoBehaviour {
     public ListDays currentDay;
 
     public float fl_timeSpeed;
+    public bool bl_canChangeTime;
     private int in_currentTime = 8;
     private bool bl_progressTime = true;
     private bool bl_changeClass = true;
@@ -29,7 +30,7 @@ public class JH_Time_UI : MonoBehaviour {
         go_classManager = GameObject.Find("Main Camera");
         tx_days = transform.GetChild(0).GetComponent<Text>();
         tx_time = transform.GetChild(1).GetComponent<Text>();
-        PauseTime();
+        Time.timeScale = 0;
 	}
 	
 	// Update is called once per frame
@@ -103,20 +104,31 @@ public class JH_Time_UI : MonoBehaviour {
         else go_classManager.GetComponent<JH_Class_Manager>().bl_homeTime = false;
     }
 
+
+    // Allows the buttons to change the time scale
     public void PauseTime()
     {
-        if (Time.timeScale == 0) Time.timeScale = 1;
-        else Time.timeScale = 0;
+        if (bl_canChangeTime)
+        {
+            if (Time.timeScale == 0) Time.timeScale = 1;
+            else Time.timeScale = 0;
+        }
     }
 
     public void NormalTime()
     {
-        Time.timeScale = 1;
+        if (bl_canChangeTime)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void DoubleTime()
     {
-        if (Time.timeScale != 2) Time.timeScale = 2;
-        else Time.timeScale = 1;
+        if (bl_canChangeTime)
+        {
+            if (Time.timeScale != 2) Time.timeScale = 2;
+            else Time.timeScale = 1;
+        }
     }
 }
