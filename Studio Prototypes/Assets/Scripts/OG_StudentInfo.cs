@@ -21,10 +21,20 @@ public class OG_StudentInfo : MonoBehaviour
     public Text PowerTypetext;
 
     [Header("Student Specific Power")]
-    public string[] PhSpecificPowersList;
-    public string[] MeSpecificPowersList;
+    public string[] PhysicalSpecificPowersList;
+    public string[] MentalSpecificPowersList;
     public string SpecificPower;
     public Text SpecificPowertext;
+
+    [Header("Student Stats")]
+    public int EQ;
+    public int IQ;
+    public int FL;
+    public int SL;
+    public Text EQTxt;
+    public Text IQTxt;
+    public Text FLTxt;
+    public Text SLTxt;
 
     [Header("Student Happiness")]
     public float fl_Happiness;
@@ -51,6 +61,7 @@ public class OG_StudentInfo : MonoBehaviour
         StudentSpecificPower();
         StudentHappiness();
         StudentAlignment();
+        StudentStats();
     }
 
     // Update is called once per frame
@@ -87,15 +98,27 @@ public class OG_StudentInfo : MonoBehaviour
     {
         if(PowerType == "Physical")
         {
-            SpecificPower = PhSpecificPowersList[Random.Range(0, PhSpecificPowersList.Length)];
+            SpecificPower = PhysicalSpecificPowersList[Random.Range(0, PhysicalSpecificPowersList.Length)];
             SpecificPowertext.text = SpecificPower.ToString();
         }
 
         if (PowerType == "Mental")
         {
-            SpecificPower = MeSpecificPowersList[Random.Range(0, MeSpecificPowersList.Length)];
+            SpecificPower = MentalSpecificPowersList[Random.Range(0, MentalSpecificPowersList.Length)];
             SpecificPowertext.text = SpecificPower.ToString();
         }
+    }
+
+    void StudentStats()
+    {
+        EQ = Random.Range(0, 30);
+        IQ = Random.Range(0, 50 - EQ);
+        FL = 50 - EQ - IQ;
+        SL = Random.Range(0, 10);
+        EQTxt.text = "EQ: " + EQ.ToString();
+        IQTxt.text = "IQ: " + IQ.ToString();
+        FLTxt.text = "Fitness Level: " +  FL.ToString();
+        SLTxt.text = "Super Power Level: " + SL.ToString();
     }
 
     void StudentHappiness()
