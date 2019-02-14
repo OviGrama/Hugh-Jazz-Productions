@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2317,10 +2317,10 @@ RectTransform:
   - {fileID: 35272140}
   - {fileID: 1682117527}
   - {fileID: 1873427289}
-  - {fileID: 690235674}
-  - {fileID: 656534488}
   - {fileID: 1464173660}
+  - {fileID: 656534488}
   - {fileID: 1937774784}
+  - {fileID: 690235674}
   - {fileID: 1402549811}
   - {fileID: 492021044}
   m_Father: {fileID: 906164597}
@@ -4234,7 +4234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &93321232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14155,7 +14155,7 @@ RectTransform:
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 1768998401}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19696,7 +19696,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -23766,7 +23766,7 @@ RectTransform:
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 1768998401}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28132,7 +28132,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -33980,7 +33980,7 @@ GameObject:
   - component: {fileID: 656534490}
   - component: {fileID: 656534489}
   m_Layer: 5
-  m_Name: ScienceText
+  m_Name: IQText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35703,7 +35703,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -36236,7 +36236,7 @@ RectTransform:
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 56041095}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -37030,7 +37030,7 @@ GameObject:
   - component: {fileID: 704309521}
   - component: {fileID: 704309520}
   m_Layer: 5
-  m_Name: ScienceText
+  m_Name: IQText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39302,8 +39302,8 @@ RectTransform:
   m_Father: {fileID: 75303245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.291, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -4, y: 14.59}
   m_SizeDelta: {x: 7.5, y: -21.779999}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -49847,7 +49847,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -56935,8 +56935,8 @@ RectTransform:
   m_Father: {fileID: 309362886}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.291, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -4, y: 14.59}
   m_SizeDelta: {x: 7.5, y: -21.779999}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -76078,20 +76078,28 @@ MonoBehaviour:
   - Mental
   PowerType: 
   PowerTypetext: {fileID: 1218013823}
-  PhSpecificPowersList:
-  - Strength
+  PhysicalSpecificPowersList:
+  - Strenght
   - Speed
   - Flight
   - Shapeshifting
   - Elemental Manipulation
-  MeSpecificPowersList:
-  - Telekenesis
+  MentalSpecificPowersList:
+  - Telekineses
   - Telepathy
   - Teleportation
   - Precognition
   - Clairevoyance
   SpecificPower: 
   SpecificPowertext: {fileID: 1973849830}
+  EQ: 0
+  IQ: 0
+  FL: 0
+  SL: 0
+  EQTxt: {fileID: 1464173661}
+  IQTxt: {fileID: 656534489}
+  FLTxt: {fileID: 1937774785}
+  SLTxt: {fileID: 690235675}
   fl_Happiness: 0
   sl_HappinessBar: {fileID: 390156092}
   fl_Allignment: 0
@@ -77737,7 +77745,7 @@ GameObject:
   - component: {fileID: 1464173662}
   - component: {fileID: 1464173661}
   m_Layer: 5
-  m_Name: GeneralText
+  m_Name: EQText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77755,7 +77763,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 56041095}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -79989,8 +79997,8 @@ RectTransform:
   m_Father: {fileID: 1344842280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.291, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -4, y: 14.59}
   m_SizeDelta: {x: 7.5, y: -21.779999}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -94020,10 +94028,10 @@ RectTransform:
   - {fileID: 433224880}
   - {fileID: 785226003}
   - {fileID: 2044013629}
-  - {fileID: 452498823}
-  - {fileID: 704309519}
   - {fileID: 2112073874}
+  - {fileID: 704309519}
   - {fileID: 279870482}
+  - {fileID: 452498823}
   - {fileID: 112636160}
   - {fileID: 554139768}
   m_Father: {fileID: 1674438790}
@@ -100511,8 +100519,8 @@ RectTransform:
   m_Father: {fileID: 22080036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.291, y: 0}
-  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -4, y: 14.59}
   m_SizeDelta: {x: 7.5, y: -21.779999}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -103781,7 +103789,7 @@ RectTransform:
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 56041095}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -108635,20 +108643,28 @@ MonoBehaviour:
   - Mental
   PowerType: 
   PowerTypetext: {fileID: 730656765}
-  PhSpecificPowersList:
-  - Strength
+  PhysicalSpecificPowersList:
+  - Strenght
   - Speed
   - Flight
   - Shapeshifting
   - Elemental Manipulation
-  MeSpecificPowersList:
-  - Telekenesis
+  MentalSpecificPowersList:
+  - Telekineses
   - Telepathy
   - Teleportation
   - Precognition
   - Clairevoyance
   SpecificPower: 
   SpecificPowertext: {fileID: 2045265819}
+  EQ: 0
+  IQ: 0
+  FL: 0
+  SL: 0
+  EQTxt: {fileID: 2112073875}
+  IQTxt: {fileID: 704309520}
+  FLTxt: {fileID: 279870483}
+  SLTxt: {fileID: 452498824}
   fl_Happiness: 0
   sl_HappinessBar: {fileID: 1771839398}
   fl_Allignment: 0
@@ -112860,7 +112876,7 @@ GameObject:
   - component: {fileID: 2112073876}
   - component: {fileID: 2112073875}
   m_Layer: 5
-  m_Name: GeneralText
+  m_Name: EQText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112879,7 +112895,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1768998401}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
