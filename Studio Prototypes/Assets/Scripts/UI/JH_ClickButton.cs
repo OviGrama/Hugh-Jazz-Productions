@@ -21,7 +21,7 @@ public class JH_ClickButton : MonoBehaviour
     {
         fl_startPos = transform.position.y;
         go_mainUI = transform.parent.gameObject;
-        bt_button = transform.GetChild(0).GetComponent<Button>();
+        bt_button = transform.GetComponentInChildren<Button>();
 
         // Sets the starting position for the UI
         go_mainUI.transform.parent.GetChild(0).transform.position = new Vector3(go_mainUI.transform.parent.GetChild(0).transform.position.x,
