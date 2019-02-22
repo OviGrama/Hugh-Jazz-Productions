@@ -150,7 +150,8 @@ public class OG_ClassesDropDown : MonoBehaviour
 
     public void ClassesPanels()
     {
-        if(dd_MonDropdownAM.value == 1)
+        #region Monday AM
+        if (dd_MonDropdownAM.value == 1)
         {
             pl_EQ_PanelMonAM.SetActive(true);
         }
@@ -185,6 +186,351 @@ public class OG_ClassesDropDown : MonoBehaviour
         {
             pl_Fitness_PanelMonAM.SetActive(false);
         }
+        #endregion
+
+        #region Tuesday AM
+        if (dd_TueDropdownAM.value == 1)
+        {
+            pl_EQ_PanelTueAM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelTueAM.SetActive(false);
+        }
+
+        if (dd_TueDropdownAM.value == 2)
+        {
+            pl_IQ_PanelTueAM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelTueAM.SetActive(false);
+        }
+
+        if (dd_TueDropdownAM.value == 3)
+        {
+            pl_Super_PanelTueAM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelTueAM.SetActive(false);
+        }
+
+        if (dd_TueDropdownAM.value == 4)
+        {
+            pl_Fitness_PanelTueAM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelTueAM.SetActive(false);
+        }
+        #endregion
+
+        #region Wednesday AM
+        if (dd_WedDropdownAM.value == 1)
+        {
+            pl_EQ_PanelWedAM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelWedAM.SetActive(false);
+        }
+
+        if (dd_WedDropdownAM.value == 2)
+        {
+            pl_IQ_PanelWedAM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelWedAM.SetActive(false);
+        }
+
+        if (dd_WedDropdownAM.value == 3)
+        {
+            pl_Super_PanelWedAM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelWedAM.SetActive(false);
+        }
+
+        if (dd_WedDropdownAM.value == 4)
+        {
+            pl_Fitness_PanelWedAM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelWedAM.SetActive(false);
+        }
+        #endregion
+
+        #region Thursday AM
+        if (dd_ThuDropdownAM.value == 1)
+        {
+            pl_EQ_PanelThuAM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelThuAM.SetActive(false);
+        }
+
+        if (dd_ThuDropdownAM.value == 2)
+        {
+            pl_IQ_PanelThuAM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelThuAM.SetActive(false);
+        }
+
+        if (dd_ThuDropdownAM.value == 3)
+        {
+            pl_Super_PanelThuAM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelThuAM.SetActive(false);
+        }
+
+        if (dd_ThuDropdownAM.value == 4)
+        {
+            pl_Fitness_PanelThuAM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelThuAM.SetActive(false);
+        }
+        #endregion
+
+        #region Friday AM
+        if (dd_FrDropdownAM.value == 1)
+        {
+            pl_EQ_PanelFrAM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelFrAM.SetActive(false);
+        }
+
+        if (dd_FrDropdownAM.value == 2)
+        {
+            pl_IQ_PanelFrAM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelFrAM.SetActive(false);
+        }
+
+        if (dd_FrDropdownAM.value == 3)
+        {
+            pl_Super_PanelFrAM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelFrAM.SetActive(false);
+        }
+
+        if (dd_FrDropdownAM.value == 4)
+        {
+            pl_Fitness_PanelFrAM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelFrAM.SetActive(false);
+        }
+        #endregion
+
+
+
+        #region Monday PM
+        if (dd_MonDropdownPM.value == 1)
+        {
+            pl_EQ_PanelMonPM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelMonPM.SetActive(false);
+        }
+
+        if (dd_MonDropdownPM.value == 2)
+        {
+            pl_IQ_PanelMonPM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelMonPM.SetActive(false);
+        }
+
+        if (dd_MonDropdownPM.value == 3)
+        {
+            pl_Super_PanelMonPM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelMonPM.SetActive(false);
+        }
+
+        if (dd_MonDropdownPM.value == 4)
+        {
+            pl_Fitness_PanelMonPM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelMonPM.SetActive(false);
+        }
+        #endregion
+
+        #region Tuesday PM
+        if (dd_TueDropdownPM.value == 1)
+        {
+            pl_EQ_PanelTuePM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelTuePM.SetActive(false);
+        }
+
+        if (dd_TueDropdownPM.value == 2)
+        {
+            pl_IQ_PanelTuePM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelTuePM.SetActive(false);
+        }
+
+        if (dd_TueDropdownPM.value == 3)
+        {
+            pl_Super_PanelTuePM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelTuePM.SetActive(false);
+        }
+
+        if (dd_TueDropdownPM.value == 4)
+        {
+            pl_Fitness_PanelTuePM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelTuePM.SetActive(false);
+        }
+        #endregion
+
+        #region Wednesday PM
+        if (dd_WedDropdownPM.value == 1)
+        {
+            pl_EQ_PanelWedPM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelWedPM.SetActive(false);
+        }
+
+        if (dd_WedDropdownPM.value == 2)
+        {
+            pl_IQ_PanelWedPM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelWedPM.SetActive(false);
+        }
+
+        if (dd_WedDropdownPM.value == 3)
+        {
+            pl_Super_PanelWedPM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelWedPM.SetActive(false);
+        }
+
+        if (dd_WedDropdownPM.value == 4)
+        {
+            pl_Fitness_PanelWedPM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelWedPM.SetActive(false);
+        }
+        #endregion
+
+        #region Thursday PM
+        if (dd_ThuDropdownPM.value == 1)
+        {
+            pl_EQ_PanelThuPM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelThuPM.SetActive(false);
+        }
+
+        if (dd_ThuDropdownPM.value == 2)
+        {
+            pl_IQ_PanelThuPM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelThuPM.SetActive(false);
+        }
+
+        if (dd_ThuDropdownPM.value == 3)
+        {
+            pl_Super_PanelThuPM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelThuPM.SetActive(false);
+        }
+
+        if (dd_ThuDropdownPM.value == 4)
+        {
+            pl_Fitness_PanelThuPM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelThuPM.SetActive(false);
+        }
+        #endregion
+
+        #region Friday PM
+        if (dd_FrDropdownPM.value == 1)
+        {
+            pl_EQ_PanelFrPM.SetActive(true);
+        }
+        else
+        {
+            pl_EQ_PanelFrPM.SetActive(false);
+        }
+
+        if (dd_FrDropdownPM.value == 2)
+        {
+            pl_IQ_PanelFrPM.SetActive(true);
+        }
+        else
+        {
+            pl_IQ_PanelFrPM.SetActive(false);
+        }
+
+        if (dd_FrDropdownPM.value == 3)
+        {
+            pl_Super_PanelFrPM.SetActive(true);
+        }
+        else
+        {
+            pl_Super_PanelFrPM.SetActive(false);
+        }
+
+        if (dd_FrDropdownPM.value == 4)
+        {
+            pl_Fitness_PanelFrPM.SetActive(true);
+        }
+        else
+        {
+            pl_Fitness_PanelFrPM.SetActive(false);
+        }
+        #endregion
     }
 
 
