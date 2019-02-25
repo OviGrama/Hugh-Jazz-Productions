@@ -1,30 +1,108 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JH_Assign_Class : MonoBehaviour {
 
-    public int classPosition;
-    private GameObject go_classManager;
+    public JH_Set_Class.ClassName mondayAM;
+    public JH_Set_Class.ClassName mondayPM;
+    public JH_Set_Class.ClassName tuesdayAM;
+    public JH_Set_Class.ClassName tuesdayPM;
+    public JH_Set_Class.ClassName wednesdayAM;
+    public JH_Set_Class.ClassName wednesdayPM;
+    public JH_Set_Class.ClassName thursdayAM;
+    public JH_Set_Class.ClassName thursdayPM;
+    public JH_Set_Class.ClassName fridayAM;
+    public JH_Set_Class.ClassName fridayPM;
 
-	// Use this for initialization
-	void Start () {
-        go_classManager = GameObject.Find("Main Camera");
+    public JH_Set_Class.ClassName currentClass;
+
+    public Text txt_SpecificClassMonAM;
+    public Text txt_SpecificClassTueAM;
+    public Text txt_SpecificClassWedAM;
+    public Text txt_SpecificClassThuAM;
+    public Text txt_SpecificClassFrAM;
+
+    public Text txt_SpecificClassMonPM;
+    public Text txt_SpecificClassTuePM;
+    public Text txt_SpecificClassWedPM;
+    public Text txt_SpecificClassThuPM;
+    public Text txt_SpecificClassFrPM;
+
+    [Header("Class Objects")]
+    public GameObject go_literatureClass;
+    public GameObject go_citizenshipClass;
+    public GameObject go_scienceClass;
+    public GameObject go_sportsClass;
+    public GameObject go_superClass;
+
+    [Header("Facilities Objects")]
+    public GameObject go_canteen;
+    public GameObject go_homeSpot;
+
+    // Use this for initialization
+    void Start () {
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        UpdateClasses();
+        AssignClass();
 	}
 
-    void UpdateClasses()
+    void AssignClass()
     {
-        if (transform.childCount > 2) {
-             if (transform.GetChild(2).GetComponent<JH_Class_Navigation>() != null) {
+        if (mondayAM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassMonAM.text = mondayAM.ToString();
+        }
 
-                go_classManager.GetComponent<JH_Class_Manager>().ClassList[classPosition - 1] =
-                    transform.GetChild(2).GetComponent<JH_Class_Navigation>().assignedClass;
-             }
+        if(tuesdayAM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassTueAM.text = tuesdayAM.ToString();
+        }
+
+        if (wednesdayAM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassWedAM.text = wednesdayAM.ToString();
+        }
+
+        if (thursdayAM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassThuAM.text = thursdayAM.ToString();
+        }
+
+        if (fridayAM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassFrAM.text = fridayAM.ToString();
+        }
+
+        if (mondayPM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassMonPM.text = mondayPM.ToString();
+        }
+
+        if (tuesdayPM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassTuePM.text = tuesdayPM.ToString();
+        }
+
+        if (wednesdayPM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassWedPM.text = wednesdayPM.ToString();
+        }
+
+        if (thursdayPM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassThuPM.text = thursdayPM.ToString();
+        }
+
+        if (fridayPM != JH_Set_Class.ClassName.None)
+        {
+            txt_SpecificClassFrPM.text = fridayPM.ToString();
         }
     }
+
+    
 }

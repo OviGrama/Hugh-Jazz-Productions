@@ -558,4 +558,19 @@ public class OG_ClassesDropDown : MonoBehaviour
 
         dd_WeEndDropdown.AddOptions(Weekend);
     }
+
+    public void ResetDropDown()
+    {
+        dd_MonDropdownAM.value = 0;
+        dd_TueDropdownAM.value = 0;
+        dd_WedDropdownAM.value = 0;
+        dd_ThuDropdownAM.value = 0;
+        dd_FrDropdownAM.value = 0;
+
+        dd_MonDropdownPM.value = 0;
+        dd_TueDropdownPM.value = 0;
+        dd_WedDropdownPM.value = 0;
+        dd_ThuDropdownPM.value = 0;
+        dd_FrDropdownPM.value = 0;
+    }
 }
