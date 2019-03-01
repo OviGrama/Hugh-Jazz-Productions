@@ -32,9 +32,12 @@ public class AC_PurchaseButton : MonoBehaviour
     //
     void Purchase()
     {
-        // Subtracts class price from current money amount.
+        // Checks the player has enough money to purchase the class.
         if (schoolStats.currentMoney - purchasePrice >= 0)
         {
+            //Subtracts class price from current money amount.
+            schoolStats.currentMoney -= purchasePrice;
+
             // Run money stat update.
             schoolStats.StatsUpdate();
 
