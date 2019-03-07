@@ -23,10 +23,28 @@ public class JH_Set_Class : MonoBehaviour
     {
         None,
         Literature,
+        Advanced_Literature,
         Citizenship,
+        Advanced_Citizenship,
         BasicScience,
+        Psychology,
+        Physiology,
+        Advanced_Science,
+        Persuasion_Hero,
+        Persuasion_Villain,
+        Genetics_Hero,
+        Genetics_Villain,
         Sport,
-        Super101
+        Gym,
+        Advanced_Gym,
+        Meditation,
+        Advanced_Meditation,
+        Super101,
+        Super201,
+        Physical_Development,
+        Mental_Development,
+        Responsible_Power_Management,
+        Maximising_Power_Potential
     }
     public ClassName className;
 
