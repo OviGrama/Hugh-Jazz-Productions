@@ -16,16 +16,18 @@ public class AC_PurchaseButton : MonoBehaviour
     // Varibale to hold the confirmation button of what is being purchased.
     public Button b_PurchaseConfirmButton;
     // Varibale to hold what has been purchased.
-    public Button b_PurchasedClassButton;
-    
+    public Button[] b_PurchasedClassButton;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //
+
+
+        // 
         schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
 
-        //
+        // Adds a listener to the confirm button so that when the button is clicked it runs the Purchase function.
         b_PurchaseConfirmButton.onClick.AddListener(Purchase);
     }
 
@@ -44,9 +46,12 @@ public class AC_PurchaseButton : MonoBehaviour
             // Turns associated brought variable to true.
             classBrought = true;
 
-            // Activates the class button.
-            b_PurchasedClassButton.gameObject.SetActive(true);
-
+            // Activates the all class buttons.
+            for (int i = 0; i < b_PurchasedClassButton.Length; i++)
+            {
+                b_PurchasedClassButton[i].gameObject.SetActive(true);
+            }
+            
             // Diactivates the purchase button.
             b_PurchaseButton.GetComponent<Button>().interactable = false;
         }
