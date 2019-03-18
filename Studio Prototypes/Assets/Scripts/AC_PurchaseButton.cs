@@ -24,7 +24,7 @@ public class AC_PurchaseButton : MonoBehaviour
     {
 
 
-        // 
+        // So the this script doesnt lose the reference to the AC_SchoolStatsManager script. 
         schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
 
         // Adds a listener to the confirm button so that when the button is clicked it runs the Purchase function.

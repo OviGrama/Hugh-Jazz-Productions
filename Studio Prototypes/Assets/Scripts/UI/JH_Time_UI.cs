@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class JH_Time_UI : MonoBehaviour
 {
+    // Connects to AC_YearEnd script so graduation function can be called by this script.
+    private AC_YearEnd yearEnd;
+
     public Text tx_year;
     public Text tx_week;
     public Text tx_day;
@@ -12,7 +15,7 @@ public class JH_Time_UI : MonoBehaviour
 
     public bool bl_timeControls;
 
-    private int in_year = 1;
+    public int in_year = 1;
     private int in_week = 1;
     [HideInInspector] public int in_time;
 
@@ -41,6 +44,9 @@ public class JH_Time_UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // So the this script doesnt lose the reference to the AC_YearEnd script.
+        yearEnd = GameObject.Find("GameManager").GetComponent<AC_YearEnd>();
+
         in_time = 6;
         cb_oldColors = go_playButton.GetComponent<Button>().colors;
         cb_newColors = cb_oldColors;
@@ -79,6 +85,7 @@ public class JH_Time_UI : MonoBehaviour
         {
             in_year += 1;
             in_week = 1;
+            yearEnd.Graduation();
         }
     }
 
