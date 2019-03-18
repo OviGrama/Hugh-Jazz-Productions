@@ -16,7 +16,7 @@ public class AC_YearEnd : MonoBehaviour
     public int studentPassGrade;
     public int superPassGrade;
     // Variables that hold the number of students that graduate.
-    public int numberOfGraduates;
+    public int[] numberOfGraduates;
     public int numberOfSuperGraduates;
     // Variables that hold what students do when they graduate.
     public int numberOfNormies;
@@ -60,22 +60,46 @@ public class AC_YearEnd : MonoBehaviour
             currentStudentSL = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().SL;
             currentStudentALI = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().fl_Allignment;
 
+            // Has the student passed.
             if (currentStudentEQ + currentStudentIQ + currentStudentFL >= studentPassGrade)
             {
-                numberOfGraduates = numberOfGraduates ++;
-            }
+                // Increase the number of graduates.
+                numberOfGraduates[timeUI.in_year - 1]++;
 
-            if (currentStudentSL >= superPassGrade)
-            {
-                numberOfSuperGraduates = numberOfSuperGraduates ++;
-            }
+                // Is the graduate a super.
+                if (currentStudentSL >= superPassGrade)
 
-            if (currentStudentALI >= 85)
-            {
-                numberOfSuperheroes = numberOfSuperheroes ++;
-            }
+                {
+                    // Increase the number of super graduates.
+                    numberOfSuperGraduates++;
 
+                    // Check to see what type of super powered individual the super graduate will become.
+                    if (currentStudentALI >= 85)
+                    {
+                        numberOfSuperheroes++;
+                    }
+
+                    if (currentStudentALI >= 65 & currentStudentALI < 85)
+                    {
+                        numberOfHeroes++;
+                    }
+
+                    if (currentStudentALI > 35 & currentStudentALI < 65 || currentStudentSL < superPassGrade)
+                    {
+                        numberOfNormies++;
+                    }
+
+                    if (currentStudentALI < 15 & currentStudentALI <= 35)
+                    {
+                        numberOfVillians++;
+                    }
+
+                    if (currentStudentALI <= 15)
+                    {
+                        numberOfSupervillians++;
+                    }
+                }
+            } 
         }
     }
-
 }
