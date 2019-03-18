@@ -15,7 +15,7 @@ public class JH_Time_UI : MonoBehaviour
 
     public bool bl_timeControls;
 
-    private int in_year = 1;
+    public int in_year = 1;
     private int in_week = 1;
     [HideInInspector] public int in_time;
 
