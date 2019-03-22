@@ -10,7 +10,6 @@ public class AC_ClassTiers : MonoBehaviour
     // What tier is the class.
     public bool tier1Class;
     public bool tier2Class;
-    public bool tier3Class;
     // What type of class is it.
     public bool iqClass;
     public bool fitnessClass;

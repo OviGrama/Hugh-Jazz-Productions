@@ -67,17 +67,18 @@ public class AC_PurchaseButton : MonoBehaviour
             
             if (tier0Class == true && iqClass == true)
             {
-                tierUnlocks.iqPrimaryClassBrought = true;
+                tierUnlocks.iqBuildingBuyable = true;
             }
 
             if (tier0Class == true && fitnessClass == true)
             {
-                tierUnlocks.fitnessPrimaryClassBrought = true;
+                tierUnlocks.fitnessBuildingBuyable = true;
+
             }
 
             if (tier0Class == true && superClass == true)
             {
-                tierUnlocks.superPrimaryClassBrought = true;
+                tierUnlocks.superBuildingBuyable = true;
             }
 
             tierUnlocks.CanBuy();
