@@ -9,12 +9,16 @@ public class JH_Upgrade : MonoBehaviour
     public int in_upgradeCost;
     public GameObject[] go_enable;
     public GameObject[] go_disable;
+    public GameObject[] go_unlock;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        sc_schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
+        if (in_upgradeCost != 0)
+        {
+            sc_schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
+        }
     }
 
     // Update is called once per frame
@@ -22,13 +26,16 @@ public class JH_Upgrade : MonoBehaviour
     {
 
         // Allows button to be clicked if player can afford the upgrade
-        if (sc_schoolStats.currentMoney - in_upgradeCost >= 0)
+        if (in_upgradeCost != 0)
         {
-            GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            GetComponent<Button>().interactable = false;
+            if (sc_schoolStats.currentMoney - in_upgradeCost >= 0)
+            {
+                GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                GetComponent<Button>().interactable = false;
+            }
         }
     }
 
@@ -53,8 +60,19 @@ public class JH_Upgrade : MonoBehaviour
             }
         }
 
+        if (go_unlock.Length > 0)
+        {
+            for (int i = 0; i < go_unlock.Length; i++)
+            {
+                go_unlock[i].SetActive(true);
+            }
+        }
+
         // Removes money from player
-        sc_schoolStats.currentMoney -= in_upgradeCost;
+        if (in_upgradeCost != 0)
+        {
+            sc_schoolStats.currentMoney -= in_upgradeCost;
+        }
     }
 
 }
