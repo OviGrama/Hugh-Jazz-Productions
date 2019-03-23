@@ -26,11 +26,11 @@ public class JH_Camera_Move : MonoBehaviour {
         Vector3 moveCamera = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), Input.GetAxis("Mouse ScrollWheel"));
         transform.Translate(moveCamera);
 
-        if (transform.position.x > fl_xPosMax) transform.position = new Vector3(fl_xPosMax, transform.position.y, transform.position.z);
-        if (transform.position.x < -fl_xPosMax) transform.position = new Vector3(-fl_xPosMax, transform.position.y, transform.position.z);
-        if (transform.position.z > fl_zPosMax) transform.position = new Vector3(transform.position.x, transform.position.y, fl_zPosMax);
-        if (transform.position.z < -fl_zPosMax) transform.position = new Vector3(transform.position.x, transform.position.y, -fl_zPosMax);
-        if (transform.position.y > fl_yPosMax) transform.position = new Vector3(transform.position.x, fl_yPosMax, transform.position.z);
-        if (transform.position.y < fl_yPosMin) transform.position = new Vector3(transform.position.x, fl_yPosMin, transform.position.z);
+        if (transform.localPosition.x > fl_xPosMax) transform.localPosition = new Vector3(fl_xPosMax, transform.localPosition.y, transform.localPosition.z);
+        if (transform.localPosition.x < -fl_xPosMax) transform.localPosition = new Vector3(-fl_xPosMax, transform.localPosition.y, transform.localPosition.z);
+        if (transform.localPosition.z > fl_zPosMax) transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, fl_zPosMax);
+        if (transform.localPosition.z < -fl_zPosMax) transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -fl_zPosMax);
+        if (transform.localPosition.y > fl_yPosMax) transform.localPosition = new Vector3(transform.localPosition.x, fl_yPosMax, transform.localPosition.z);
+        if (transform.localPosition.y < fl_yPosMin) transform.localPosition = new Vector3(transform.localPosition.x, fl_yPosMin, transform.localPosition.z);
     }
 }

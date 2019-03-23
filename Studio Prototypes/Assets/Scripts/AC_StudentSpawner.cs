@@ -7,6 +7,7 @@ public class AC_StudentSpawner : MonoBehaviour
 
     // Hold each of the spawn
     public GameObject prefab_Student;
+    public GameObject spawnLocation;
     public GameObject[] go_Students;
     public int numberOfStudents;
 
@@ -27,7 +28,7 @@ public class AC_StudentSpawner : MonoBehaviour
 
         for (int i = 0; i < numberOfStudents; i++)
         {
-            go_Students[i] = Instantiate(prefab_Student, new Vector3(50, 0, -30), Quaternion.identity);
+            go_Students[i] = Instantiate(prefab_Student, spawnLocation.transform.position, Quaternion.identity);
         }
 
     }
