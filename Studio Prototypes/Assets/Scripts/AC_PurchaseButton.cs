@@ -65,21 +65,24 @@ public class AC_PurchaseButton : MonoBehaviour
             // Diactivates the purchase button.
             b_PurchaseButton.GetComponent<Button>().interactable = false;
             
-            if (tier0Class == true && iqClass == true)
-            {
-                tierUnlocks.iqBuildingBuyable = true;
-            }
+            //if (tier0Class == true && iqClass == true)
+            //{
+            //    tierUnlocks.iqBuildingBuyable = true;
 
-            if (tier0Class == true && fitnessClass == true)
-            {
-                tierUnlocks.fitnessBuildingBuyable = true;
+            //}
 
-            }
+            //if (tier0Class == true && fitnessClass == true)
+            //{
+            //    tierUnlocks.fitnessBuildingBuyable = true;
 
-            if (tier0Class == true && superClass == true)
-            {
-                tierUnlocks.superBuildingBuyable = true;
-            }
+
+            //}
+
+            //if (tier0Class == true && superClass == true)
+            //{
+            //    tierUnlocks.superBuildingBuyable = true;
+
+            //}
 
             tierUnlocks.CanBuy();
             Debug.Log(gameObject);
