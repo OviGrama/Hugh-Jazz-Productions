@@ -18,10 +18,15 @@ public class AC_TierUnlocks : MonoBehaviour
     //Creates a connection to the 
     private AC_ClassTiers classTiers;
 
-    // Can the building be brought.
+    // The buyable building buttons.
+    public Button iqBuilding;
+    public Button fitnessBuilding;
+    public Button superBuilding;
+    // Is the Buildign Buyable.
     public bool iqBuildingBuyable;
     public bool fitnessBuildingBuyable;
     public bool superBuildingBuyable;
+
     // Is the building unlocked.
     public bool iqBuildingBrought;
     public bool fitnessBuildingBrought;
@@ -41,6 +46,24 @@ public class AC_TierUnlocks : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CanBuyBuilding()
+    {
+        if (iqBuildingBuyable == true)
+        {
+            iqBuilding.GetComponent<Button>().interactable = true;
+        }
+
+        if (fitnessBuildingBuyable == true)
+        {
+            fitnessBuilding.GetComponent<Button>().interactable = true;
+        }
+
+        if (superBuildingBuyable == true)
+        {
+            superBuilding.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void CanBuy()
