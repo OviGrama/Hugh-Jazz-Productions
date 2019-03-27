@@ -22,6 +22,13 @@ public class AC_SchoolStatsManager : MonoBehaviour
     public string currentAverageHappiness;
     public string currentAverageMorality;
 
+    void Update()
+    {
+        if (dd_SchoolStats_Money.text != "MONEY: " + currentMoney)
+        {
+            StatsUpdate();
+        }
+    }
 
     //Updates the school money stat.
     public void StatsUpdate()
