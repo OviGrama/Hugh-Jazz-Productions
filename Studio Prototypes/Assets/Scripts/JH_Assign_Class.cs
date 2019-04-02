@@ -58,6 +58,7 @@ public class JH_Assign_Class : MonoBehaviour {
     [Header("Facilities Objects")]
     public GameObject go_canteen;
     public GameObject go_homeSpot;
+    public GameObject[] go_dorms;
 
     // Use this for initialization
     void Start () {

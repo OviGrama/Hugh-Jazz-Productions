@@ -15,6 +15,8 @@ public class JH_Student_Manager : MonoBehaviour
     public string[] femaleFirstNames;
     public string[] surnameList;
 
+    public int in_dormUpgrades = 0;
+
     // Start is called before the first frame update
     void Start()
     {
