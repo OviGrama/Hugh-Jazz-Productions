@@ -60,6 +60,78 @@ public class JH_Student_Move : MonoBehaviour {
                 {
                     nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_sportsClass.transform.position;
                 }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Advanced_Citizenship)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_advancedCitizenship.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Advanced_Literature)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_advancedLiterature.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Psychology)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_psychology.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Physiology)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_physiology.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Advanced_Science)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_advancedScience.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Persuasion_Hero)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_persuasionHero.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Persuasion_Villain)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_persuasionVillain.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Genetics_Hero)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_geneticsHero.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Genetics_Villain)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_geneticsVillain.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Gym)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_gymClass.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Advanced_Gym)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_advancedGym.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Meditation)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_meditationClass.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Advanced_Meditation)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_advancedMeditation.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Super201)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_super201.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Physical_Development)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_physicalDevelopment.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Mental_Development)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_mentalDevelopment.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Responsible_Power_Management)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_responsiblePowerManagement.transform.position;
+                }
+                if (go_classManager.GetComponent<JH_Assign_Class>().currentClass == JH_Set_Class.ClassName.Maximising_Power_Potential)
+                {
+                    nv_student.destination = go_classManager.GetComponent<JH_Assign_Class>().go_maximisingPowerPotential.transform.position;
+                }
             }
         }
         else

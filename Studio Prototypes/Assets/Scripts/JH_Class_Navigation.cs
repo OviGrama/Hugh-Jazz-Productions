@@ -31,8 +31,8 @@ public class JH_Class_Navigation : MonoBehaviour {
 
     void AssignClass()
     {
-        if (Class == ClassName.English) assignedClass = go_classManager.GetComponent<JH_Class_Manager>().englishRoom;
-        if (Class == ClassName.Math) assignedClass = go_classManager.GetComponent<JH_Class_Manager>().mathRoom;
+        if (Class == ClassName.English) assignedClass = go_classManager.GetComponent<JH_Class_Manager>().citizenshipRoom;
+        if (Class == ClassName.Math) assignedClass = go_classManager.GetComponent<JH_Class_Manager>().literatureRoom;
         if (Class == ClassName.Science) assignedClass = go_classManager.GetComponent<JH_Class_Manager>().scienceRoom;
         if (Class == ClassName.Sport) assignedClass = go_classManager.GetComponent<JH_Class_Manager>().sportRoom;
         if (Class == ClassName.Super) assignedClass = go_classManager.GetComponent<JH_Class_Manager>().superRoom;

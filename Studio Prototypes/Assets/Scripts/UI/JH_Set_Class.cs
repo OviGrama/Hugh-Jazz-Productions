@@ -48,6 +48,15 @@ public class JH_Set_Class : MonoBehaviour
     }
     public ClassName className;
 
+    public enum GroupNumber
+    {
+        One,
+        Two,
+        Three
+    }
+
+    public GroupNumber groupNumber;
+
     private GameObject go_timetableManager;
     private GameObject go_classDropDownManager;
 

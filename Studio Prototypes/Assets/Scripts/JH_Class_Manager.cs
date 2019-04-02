@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class JH_Class_Manager : MonoBehaviour {
 
-    public GameObject englishRoom;
-    public GameObject mathRoom;
+    public GameObject literatureRoom;
+    public GameObject citizenshipRoom;
     public GameObject scienceRoom;
     public GameObject sportRoom;
     public GameObject superRoom;
