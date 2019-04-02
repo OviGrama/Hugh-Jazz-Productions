@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class JH_Upgrade : MonoBehaviour
 {
     private AC_SchoolStatsManager sc_schoolStats;
+    public bool bl_canBuy;
     public int in_upgradeCost;
     public GameObject[] go_enable;
     public GameObject[] go_disable;
@@ -26,7 +27,7 @@ public class JH_Upgrade : MonoBehaviour
     {
 
         // Allows button to be clicked if player can afford the upgrade
-        if (in_upgradeCost != 0)
+        if (in_upgradeCost != 0 && bl_canBuy)
         {
             if (sc_schoolStats.currentMoney - in_upgradeCost >= 0)
             {
@@ -36,6 +37,15 @@ public class JH_Upgrade : MonoBehaviour
             {
                 GetComponent<Button>().interactable = false;
             }
+        }
+        else if (!bl_canBuy)
+        {
+            GetComponent<Button>().interactable = false;
+        }
+
+        if (sc_schoolStats == null)
+        {
+            sc_schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
         }
     }
 
@@ -51,6 +61,7 @@ public class JH_Upgrade : MonoBehaviour
             }
         }
 
+
         // Disables selected GameObjects
         if (go_disable.Length > 0)
         {
@@ -64,7 +75,7 @@ public class JH_Upgrade : MonoBehaviour
         {
             for (int i = 0; i < go_unlock.Length; i++)
             {
-                go_unlock[i].SetActive(true);
+                go_unlock[i].GetComponent<JH_Upgrade>().bl_canBuy = true;
             }
         }
 

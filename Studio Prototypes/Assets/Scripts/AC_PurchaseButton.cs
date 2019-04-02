@@ -19,7 +19,7 @@ public class AC_PurchaseButton : MonoBehaviour
     // Varibale to hold the confirmation button of what is being purchased.
     public Button b_PurchaseConfirmButton;
     // Varibale to hold what has been purchased.
-    public Button[] b_PurchasedClassButton;
+    public GameObject[] go_Purchased;
 
     // Is it a primary class.
     public bool tier0Class;
@@ -57,9 +57,9 @@ public class AC_PurchaseButton : MonoBehaviour
             classBrought = true;
 
             // Activates the all class buttons.
-            for (int i = 0; i < b_PurchasedClassButton.Length; i++)
+            for (int i = 0; i < go_Purchased.Length; i++)
             {
-                b_PurchasedClassButton[i].gameObject.SetActive(true);
+                go_Purchased[i].gameObject.SetActive(true);
             }
             
             // Diactivates the purchase button.
@@ -68,17 +68,19 @@ public class AC_PurchaseButton : MonoBehaviour
             if (tier0Class == true && iqClass == true)
             {
                 tierUnlocks.iqBuildingBuyable = true;
+                tierUnlocks.CanBuyBuilding();
             }
 
             if (tier0Class == true && fitnessClass == true)
             {
                 tierUnlocks.fitnessBuildingBuyable = true;
-
+                tierUnlocks.CanBuyBuilding();
             }
 
             if (tier0Class == true && superClass == true)
             {
                 tierUnlocks.superBuildingBuyable = true;
+                tierUnlocks.CanBuyBuilding();
             }
 
             tierUnlocks.CanBuy();
