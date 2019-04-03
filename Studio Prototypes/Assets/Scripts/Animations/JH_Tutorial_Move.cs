@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JH_Tutorial_Move : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class JH_Tutorial_Move : MonoBehaviour
     public float fl_moveRange;
     public float fl_moveSpeed;
 
+    public string st_mainMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,10 @@ public class JH_Tutorial_Move : MonoBehaviour
     void Update()
     {
         if (bl_changePage) MovePage();
+        if (st_mainMenu != "" && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(st_mainMenu);
+        }
     }
 
     public void NextPage()

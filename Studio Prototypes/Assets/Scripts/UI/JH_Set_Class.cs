@@ -57,13 +57,12 @@ public class JH_Set_Class : MonoBehaviour
 
     public GroupNumber groupNumber;
 
-    private GameObject go_timetableManager;
+    public GameObject go_timetableManager;
     private GameObject go_classDropDownManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        go_timetableManager = GameObject.Find("ClassDrops");
         go_classDropDownManager = GameObject.Find("ClassesDropDownManager");
     }
 
