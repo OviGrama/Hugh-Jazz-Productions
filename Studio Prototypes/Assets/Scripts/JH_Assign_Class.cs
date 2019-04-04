@@ -36,10 +36,29 @@ public class JH_Assign_Class : MonoBehaviour {
     public GameObject go_scienceClass;
     public GameObject go_sportsClass;
     public GameObject go_superClass;
+    public GameObject go_advancedLiterature;
+    public GameObject go_advancedCitizenship;
+    public GameObject go_psychology;
+    public GameObject go_physiology;
+    public GameObject go_advancedScience;
+    public GameObject go_persuasionHero;
+    public GameObject go_persuasionVillain;
+    public GameObject go_geneticsHero;
+    public GameObject go_geneticsVillain;
+    public GameObject go_gymClass;
+    public GameObject go_advancedGym;
+    public GameObject go_meditationClass;
+    public GameObject go_advancedMeditation;
+    public GameObject go_super201;
+    public GameObject go_physicalDevelopment;
+    public GameObject go_mentalDevelopment;
+    public GameObject go_responsiblePowerManagement;
+    public GameObject go_maximisingPowerPotential;
 
     [Header("Facilities Objects")]
     public GameObject go_canteen;
     public GameObject go_homeSpot;
+    public GameObject[] go_dorms;
 
     // Use this for initialization
     void Start () {
