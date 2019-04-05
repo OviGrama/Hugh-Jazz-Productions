@@ -32,7 +32,7 @@ public class JH_Time_UI : MonoBehaviour
     public DayNames dayNames;
     private bool bl_changeTime = true;
 
-    private GameObject go_classManager;
+    private GameObject[] go_classManagers;
 
     private ColorBlock cb_newColors;
     private ColorBlock cb_oldColors;
@@ -47,11 +47,14 @@ public class JH_Time_UI : MonoBehaviour
         // So the this script doesnt lose the reference to the AC_YearEnd script.
         yearEnd = GameObject.Find("GameManager").GetComponent<AC_YearEnd>();
 
+        go_classManagers = new GameObject[3];
         in_time = 6;
         cb_oldColors = go_playButton.GetComponent<Button>().colors;
         cb_newColors = cb_oldColors;
         cb_newColors.normalColor = c_activeColor;
-        go_classManager = GameObject.Find("ClassDrops");
+        go_classManagers[0] = GameObject.Find("ClassDrops");
+        go_classManagers[1] = GameObject.Find("ClassDrops2");
+        go_classManagers[2] = GameObject.Find("ClassDrops3");
         in_year = 1;
         in_week = 1;
         tx_time.text = in_time.ToString() + ":00";
@@ -107,69 +110,74 @@ public class JH_Time_UI : MonoBehaviour
 
     void ChangeClass()
     {
-        if (dayNames == DayNames.MON)
+        for (int i = 0; i < go_classManagers.Length; i++)
         {
-            if (in_time < 11)
+
+
+            if (dayNames == DayNames.MON)
             {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().mondayAM;
+                if (in_time < 11)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().mondayAM;
+                }
+                if (in_time > 12)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().mondayPM;
+                }
             }
-            if (in_time > 12)
+            if (dayNames == DayNames.TUE)
             {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().mondayPM;
+                if (in_time < 11)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().tuesdayAM;
+                }
+                if (in_time > 12)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().tuesdayPM;
+                }
             }
-        }
-        if (dayNames == DayNames.TUE)
-        {
-            if (in_time < 11)
+            if (dayNames == DayNames.WED)
             {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().tuesdayAM;
+                if (in_time < 11)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().wednesdayAM;
+                }
+                if (in_time > 12)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().wednesdayPM;
+                }
             }
-            if (in_time > 12)
+            if (dayNames == DayNames.THUR)
             {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().tuesdayPM;
+                if (in_time < 11)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().thursdayAM;
+                }
+                if (in_time > 12)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().thursdayPM;
+                }
             }
-        }
-        if (dayNames == DayNames.WED)
-        {
-            if (in_time < 11)
+            if (dayNames == DayNames.FRI)
             {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().wednesdayAM;
-            }
-            if (in_time > 12)
-            {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().wednesdayPM;
-            }
-        }
-        if (dayNames == DayNames.THUR)
-        {
-            if (in_time < 11)
-            {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().thursdayAM;
-            }
-            if (in_time > 12)
-            {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().thursdayPM;
-            }
-        }
-        if (dayNames == DayNames.FRI)
-        {
-            if (in_time < 11)
-            {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().fridayAM;
-            }
-            if (in_time > 12)
-            {
-                go_classManager.GetComponent<JH_Assign_Class>().currentClass =
-                go_classManager.GetComponent<JH_Assign_Class>().fridayPM;
+                if (in_time < 11)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().fridayAM;
+                }
+                if (in_time > 12)
+                {
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().currentClass =
+                    go_classManagers[i].GetComponent<JH_Assign_Class>().fridayPM;
+                }
             }
         }
     }
