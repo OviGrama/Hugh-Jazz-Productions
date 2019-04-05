@@ -57,7 +57,8 @@ public class JH_Set_Class : MonoBehaviour
 
     public GroupNumber groupNumber;
 
-    public GameObject go_timetableManager;
+    private GameObject go_setClass;
+    private GameObject go_timetableManager;
     private GameObject go_classDropDownManager;
 
     // Start is called before the first frame update
@@ -69,7 +70,7 @@ public class JH_Set_Class : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SetupManager();
     }
 
     public void SetClass()
@@ -122,5 +123,26 @@ public class JH_Set_Class : MonoBehaviour
     public void ResetDropDown()
     {
         go_classDropDownManager.GetComponent<OG_ClassesDropDown>().ResetDropDown();
+    }
+
+    void SetupManager()
+    {
+        if (go_setClass == null) go_setClass = GameObject.Find("SpecificClassesPanels");
+        else
+        {
+            if (go_setClass.GetComponent<JH_Quick_Set_Class>().groupNumber == GroupNumber.One)
+            {
+                go_timetableManager = GameObject.Find("ClassDrops");
+            }
+            if (go_setClass.GetComponent<JH_Quick_Set_Class>().groupNumber == GroupNumber.Two)
+            {
+                go_timetableManager = GameObject.Find("ClassDrops2");
+            }
+            if (go_setClass.GetComponent<JH_Quick_Set_Class>().groupNumber == GroupNumber.Three)
+            {
+                go_timetableManager = GameObject.Find("ClassDrops3");
+            }
+        }
+        
     }
 }

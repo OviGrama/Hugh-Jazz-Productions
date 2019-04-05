@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class JH_Student_Move : MonoBehaviour {
 
-    public GameObject[] go_classManagers;
+    private GameObject[] go_classManagers;
     private GameObject go_timeManager;
     private GameObject go_studentManager;
     private NavMeshAgent nv_student;
@@ -16,14 +16,18 @@ public class JH_Student_Move : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        go_classManagers = new GameObject[3];
         go_timeManager = GameObject.Find("Date/TimePanel");
         go_studentManager = GameObject.Find("Game");
         nv_student = GetComponent<NavMeshAgent>();
+        go_classManagers[0] = GameObject.Find("ClassDrops");
+        go_classManagers[1] = GameObject.Find("ClassDrops2");
+        go_classManagers[2] = GameObject.Find("ClassDrops3");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        MoveToClass();
+        
 
         if (groupNumber == JH_Set_Class.GroupNumber.One)
         {
@@ -40,7 +44,8 @@ public class JH_Student_Move : MonoBehaviour {
             in_classNumber = 2;
             in_dormUnlock = 3;
         }
-	}
+        MoveToClass();
+    }
 
     void MoveToClass()
     {
