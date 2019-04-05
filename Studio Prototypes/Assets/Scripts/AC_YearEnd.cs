@@ -11,6 +11,7 @@ public class AC_YearEnd : MonoBehaviour
     private AC_SchoolStatsManager schoolStats;
     // Connect to JH_Control_Time script, to get the time when a year end.
     private JH_Time_UI timeUI;
+    private OG_RandomEvents randomEvents_ref;
 
     // Variables that hold graduation pass grades.
     public int studentPassGrade;
@@ -34,6 +35,8 @@ public class AC_YearEnd : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        randomEvents_ref = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
+
         // So the this script doesnt lose the reference to the AC_StudentSpawner script.
         studentSpawner = GameObject.Find("GameManager").GetComponent<AC_StudentSpawner>();
 
@@ -99,7 +102,9 @@ public class AC_YearEnd : MonoBehaviour
                         numberOfSupervillians++;
                     }
                 }
-            } 
+            }
         }
+
+        randomEvents_ref.HeroVillainDeck();
     }
 }
