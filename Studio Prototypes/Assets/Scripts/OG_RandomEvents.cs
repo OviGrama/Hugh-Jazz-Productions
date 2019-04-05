@@ -4,37 +4,48 @@ using UnityEngine;
 
 public class OG_RandomEvents : MonoBehaviour {
 
+    [HideInInspector]
     public float fl_ConditionalEventTimer;
+
     public float fl_StandardEventTimer;
 
-    private OG_StudentInfo alignment;
 
-    public bool bl_goodSchool;
+    public bool bl_goodRep;
     private bool bl_CondCoroutineStart = true;
     private bool bl_StaCoroutineStart = true;
 
-    public Canvas[] GoodSchoolEvents;
-    public Canvas[] BadSchoolEvents;
-    public Canvas[] StandardEvents;
+    public bool bl_herosNumberReached;
+    public bool bl_villainsNumberReached;
+
+    public int in_TotalEvents;
+
+    private AC_YearEnd yearend_ref;
+
+    public GameObject[] HeroDeck;
+    public GameObject[] VillainDeck;
+    public GameObject[] GoodRepDeck;
+    public GameObject[] BadRepDeck;
+    public GameObject[] StandardDeck;
+    public GameObject[] RandomEvents;
 
     // Use this for initialization
     void Start () {
 
-        alignment = GameObject.Find("Student").GetComponent<OG_StudentInfo>();
+        yearend_ref = GameObject.Find("GameManager").GetComponent<AC_YearEnd>();
 
-        for (int i = 0; i < GoodSchoolEvents.Length; i++)
-        {
-            GoodSchoolEvents[i].gameObject.SetActive(false);
-        }
+        //for (int i = 0; i < GoodSchoolEvents.Length; i++)
+        //{
+        //    GoodSchoolEvents[i].gameObject.SetActive(false);
+        //}
 
-        for (int i = 0; i < BadSchoolEvents.Length; i++)
-        {
-            BadSchoolEvents[i].gameObject.SetActive(false);
-        }
+        //for (int i = 0; i < BadSchoolEvents.Length; i++)
+        //{
+        //    BadSchoolEvents[i].gameObject.SetActive(false);
+        //}
 
-        for (int i = 0; i < StandardEvents.Length; i++)
+        for (int i = 0; i < StandardDeck.Length; i++)
         {
-            StandardEvents[i].gameObject.SetActive(false);
+            StandardDeck[i].gameObject.SetActive(false);
         }
 
     }
@@ -42,17 +53,28 @@ public class OG_RandomEvents : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        //in_TotalEvents = RandomEvents.Length;
 
-        if (alignment.fl_Allignment >= 50f)
-        {
-            bl_goodSchool = true;
-        }
-        else
-            bl_goodSchool = false;
+        //for (int i = 0; i < StandardDeck.Length; i++)
+        //{
+        //    RandomEvents[i] = StandardDeck[i];
+        //}
 
-        if (bl_CondCoroutineStart)
+        //if (alignment.fl_Allignment >= 50f)
+        //{
+        //    bl_goodSchool = true;
+        //}
+        //else
+        //    bl_goodSchool = false;
+
+        //if (bl_CondCoroutineStart)
+        //{
+        //    StartCoroutine(ConditionalEventTrigger());
+        //}
+
+        if (bl_herosNumberReached)
         {
-            StartCoroutine(ConditionalEventTrigger());
+            AddHeroDeck();
         }
 
         if (bl_StaCoroutineStart)
@@ -61,41 +83,68 @@ public class OG_RandomEvents : MonoBehaviour {
         }
     }
 
-    void EnableGoodEvent()
-    {
-        int i = Random.Range(0, GoodSchoolEvents.Length);
-        GoodSchoolEvents[i].gameObject.SetActive(true);
-    }
+    //void EnableGoodRepEvent()
+    //{
+    //    int i = Random.Range(0, GoodSchoolEvents.Length);
+    //    GoodSchoolEvents[i].gameObject.SetActive(true);
+    //}
 
 
-    void EnableBadEvent()
-    {
-        int i = Random.Range(0, BadSchoolEvents.Length);
-        BadSchoolEvents[i].gameObject.SetActive(true);
-    }
+    //void EnableBadRepEvent()
+    //{
+    //    int i = Random.Range(0, BadSchoolEvents.Length);
+    //    BadSchoolEvents[i].gameObject.SetActive(true);
+    //}
 
     void EnableStandardEvent()
     {
-        int i = Random.Range(0, StandardEvents.Length);
-        StandardEvents[i].gameObject.SetActive(true);
+        int i = Random.Range(0, StandardDeck.Length);
+        StandardDeck[i].gameObject.SetActive(true);
     }
 
-    IEnumerator ConditionalEventTrigger()
+    public void HeroVillainDeck()
     {
-        bl_CondCoroutineStart = false;
-
-        yield return new WaitForSeconds(fl_ConditionalEventTimer);
-
-        if (bl_goodSchool)
+        if(yearend_ref.numberOfHeroes > 10)
         {
-            EnableGoodEvent();
+            bl_herosNumberReached = true;
         }
-        else
+
+        if(yearend_ref.numberOfVillians > 10)
         {
-            EnableBadEvent();
+            bl_villainsNumberReached = true;
+        }
+    }
+    
+    void AddHeroDeck()
+    {
+        in_TotalEvents = in_TotalEvents + HeroDeck.Length;
+
+        for (int i = 0; i < HeroDeck.Length; i++)
+        {
+            RandomEvents[i+RandomEvents.Length -1] = HeroDeck[i];
         }
     }
 
+
+    // Conditionale event based on school reputation trigger (Coroutine based on the fl_conditionaleventimer)
+    //IEnumerator ConditionalEventTrigger()
+    //{
+    //    bl_CondCoroutineStart = false;
+
+    //    yield return new WaitForSeconds(fl_ConditionalEventTimer);
+
+    //    if (bl_goodRep)
+    //    {
+    //        EnableGoodRepEvent();
+    //    }
+    //    else
+    //    {
+    //        EnableBadRepEvent();
+    //    }
+    //}
+
+
+    // Standard event trigger (Coroutine based on the fl_standardeventimer)
     IEnumerator StandardEventTrigger()
     {
         bl_StaCoroutineStart = false;
@@ -109,56 +158,56 @@ public class OG_RandomEvents : MonoBehaviour {
 
     public void ReprimandThemBoth()
     {
-        StandardEvents[0].gameObject.SetActive(false);
+        StandardDeck[0].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
     public void IgnoreTheIncident()
     {
-        StandardEvents[0].gameObject.SetActive(false);
+        StandardDeck[0].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
 
     public void ReprimandTheOffender()
     {
-        StandardEvents[1].gameObject.SetActive(false);
+        StandardDeck[1].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
     public void EncourageRetaliation()
     {
-        StandardEvents[1].gameObject.SetActive(false);
+        StandardDeck[1].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
 
     public void PunishThem()
     {
-        StandardEvents[2].gameObject.SetActive(false);
+        StandardDeck[2].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
     public void BlackMailThem()
     {
-        StandardEvents[2].gameObject.SetActive(false);
+        StandardDeck[2].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
 
     public void InformTheJudges()
     {
-        StandardEvents[3].gameObject.SetActive(false);
+        StandardDeck[3].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
     public void SayNothing()
     {
-        StandardEvents[3].gameObject.SetActive(false);
+        StandardDeck[3].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
 
     public void GrapevineReprimand()
     {
-        StandardEvents[4].gameObject.SetActive(false);
+        StandardDeck[4].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
     public void GrapevineEncourage()
     {
-        StandardEvents[4].gameObject.SetActive(false);
+        StandardDeck[4].gameObject.SetActive(false);
         bl_StaCoroutineStart = true;
     }
 
@@ -166,32 +215,32 @@ public class OG_RandomEvents : MonoBehaviour {
 
     #region Good Events Actions
 
-    public void AcceptThePrise()
-    {
-        GoodSchoolEvents[0].gameObject.SetActive(false);
-        bl_CondCoroutineStart = true;
-    }
-    public void PraiseTheStudents()
-    {
-        GoodSchoolEvents[0].gameObject.SetActive(false);
-        bl_CondCoroutineStart = true;
-    }
+    //public void AcceptThePrise()
+    //{
+    //    GoodSchoolEvents[0].gameObject.SetActive(false);
+    //    bl_CondCoroutineStart = true;
+    //}
+    //public void PraiseTheStudents()
+    //{
+    //    GoodSchoolEvents[0].gameObject.SetActive(false);
+    //    bl_CondCoroutineStart = true;
+    //}
 
 
     #endregion
 
     #region Bad Events Actions
 
-    public void LetHimGo()
-    {
-        BadSchoolEvents[0].gameObject.SetActive(false);
-        bl_CondCoroutineStart = true;
-    }
-    public void DenyTheRequest()
-    {
-        BadSchoolEvents[0].gameObject.SetActive(false);
-        bl_CondCoroutineStart = true;
-    }
+    //public void LetHimGo()
+    //{
+    //    BadSchoolEvents[0].gameObject.SetActive(false);
+    //    bl_CondCoroutineStart = true;
+    //}
+    //public void DenyTheRequest()
+    //{
+    //    BadSchoolEvents[0].gameObject.SetActive(false);
+    //    bl_CondCoroutineStart = true;
+    //}
 
     #endregion
 }
