@@ -17,7 +17,7 @@ public class JH_Student_Manager : MonoBehaviour
 
     public int in_dormUpgrades = 0;
 
-    [HideInInspector] public int in_spawnAmount;
+    public int in_spawnAmount;
     private int in_amountSpawned;
 
     private GameObject go_classManager;
@@ -28,6 +28,7 @@ public class JH_Student_Manager : MonoBehaviour
     void Start()
     {
         go_classManager = GameObject.Find("ClassDrops");
+        SpawnStudents();
     }
 
     // Update is called once per frame

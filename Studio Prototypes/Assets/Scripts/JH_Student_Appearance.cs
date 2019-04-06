@@ -38,7 +38,8 @@ public class JH_Student_Appearance : MonoBehaviour
             int firstName = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().femaleFirstNames.Length);
             int surname = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().surnameList.Length);
 
-            studentName = firstName + " " + surname;
+            studentName = go_studentManager.GetComponent<JH_Student_Manager>().femaleFirstNames[firstName] + " " +
+                          go_studentManager.GetComponent<JH_Student_Manager>().surnameList[surname];
         }
         // Assigns random male head and first name
         else
@@ -49,7 +50,8 @@ public class JH_Student_Appearance : MonoBehaviour
             int firstName = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().maleFirstNames.Length);
             int surname = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().surnameList.Length);
 
-            studentName = firstName + " " + surname;
+            studentName = go_studentManager.GetComponent<JH_Student_Manager>().maleFirstNames[firstName] + " " +
+                          go_studentManager.GetComponent<JH_Student_Manager>().surnameList[surname];
         }
 
         bl_setupFinished = true;
