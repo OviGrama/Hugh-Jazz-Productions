@@ -40,6 +40,7 @@ public class JH_Time_UI : MonoBehaviour
     public GameObject go_playButton;
     public GameObject go_pauseButton;
     public GameObject go_doubleSpeedButton;
+    public GameObject go_skipButton;
 
     // Start is called before the first frame update
     void Start()
@@ -207,6 +208,15 @@ public class JH_Time_UI : MonoBehaviour
         }
     }
 
+    public void SkipForward()
+    {
+        if (bl_timeControls)
+        {
+            UpdateDay();
+            in_time = 7;
+        }
+    }
+
     void UpdateTimeButtons()
     {
         if (Time.timeScale == 0)
@@ -226,6 +236,15 @@ public class JH_Time_UI : MonoBehaviour
             go_doubleSpeedButton.GetComponent<Button>().colors = cb_newColors;
             go_pauseButton.GetComponent<Button>().colors = cb_oldColors;
             go_playButton.GetComponent<Button>().colors = cb_oldColors;
+        }
+
+        if (in_time >= 19)
+        {
+            go_skipButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            go_skipButton.GetComponent<Button>().interactable = false;
         }
     }
 }
