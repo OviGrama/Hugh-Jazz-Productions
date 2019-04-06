@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JH_Set_Class : MonoBehaviour
 {
@@ -61,10 +62,24 @@ public class JH_Set_Class : MonoBehaviour
     private GameObject go_timetableManager;
     private GameObject go_classDropDownManager;
 
+    private GameObject[] go_timetableManagers;
+
+    private JH_Quick_Set_Class resetDropdown;
+
+    private int in_classAmount;
+
     // Start is called before the first frame update
     void Start()
     {
+        go_timetableManagers = new GameObject[3];
         go_classDropDownManager = GameObject.Find("ClassesDropDownManager");
+
+        go_timetableManagers[0] = GameObject.Find("ClassDrops");
+        go_timetableManagers[1] = GameObject.Find("ClassDrops2");
+        go_timetableManagers[2] = GameObject.Find("ClassDrops3");
+
+        resetDropdown = GameObject.Find("SpecificClassesPanels").GetComponent<JH_Quick_Set_Class>();
+        
     }
 
     // Update is called once per frame
@@ -117,12 +132,23 @@ public class JH_Set_Class : MonoBehaviour
         {
             go_timetableManager.GetComponent<JH_Assign_Class>().fridayPM = className;
         }
+        
         #endregion
     }
 
+    public void CloseDropDown()
+    {
+        transform.parent.parent.gameObject.SetActive(false);
+    }
+
+
     public void ResetDropDown()
     {
-        go_classDropDownManager.GetComponent<OG_ClassesDropDown>().ResetDropDown();
+        for (int i = 0; i < resetDropdown.dd_classDropdowns.Length; i++)
+        {
+            resetDropdown.dd_classDropdowns[i].value = 0;
+        }
+        CloseDropDown();
     }
 
     void SetupManager()
@@ -142,7 +168,99 @@ public class JH_Set_Class : MonoBehaviour
             {
                 go_timetableManager = GameObject.Find("ClassDrops3");
             }
+
+
+            CheckClass();
         }
         
+        
+    }
+
+    void CheckClass()
+    {
+        for (int i = 0; i < go_timetableManagers.Length; i++)
+        {
+            if (classDate == ClassDate.MondayAM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().mondayAM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.MondayPM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().mondayPM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.TuesdayAM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().tuesdayAM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.TuesdayPM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().tuesdayPM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.WednesdayAM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().wednesdayAM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.WednesdayPM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().wednesdayPM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.ThursdayAM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().thursdayAM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.ThursdayPM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().thursdayPM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.FridayAM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().fridayAM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+            if (classDate == ClassDate.FridayPM)
+            {
+                if (go_timetableManagers[i].GetComponent<JH_Assign_Class>().fridayPM == className)
+                {
+                    in_classAmount++;
+                }
+            }
+        }
+
+        if (in_classAmount == 0)
+        {
+            GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            GetComponent<Button>().interactable = false;
+            in_classAmount = 0;
+        }
+
     }
 }

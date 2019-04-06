@@ -96,6 +96,8 @@ public class OG_ClassesDropDown : MonoBehaviour
     public Dropdown dd_WeEndDropdown;
     public Text txt_Weekend;
 
+    public GameObject go_lastClicked;
+
 
     #region Text Indexes For each day of the week (AM & PM)
     public void Dropdown_SelectedIndexMonAM(int indexMonAM)
@@ -572,5 +574,6 @@ public class OG_ClassesDropDown : MonoBehaviour
         dd_WedDropdownPM.value = 0;
         dd_ThuDropdownPM.value = 0;
         dd_FrDropdownPM.value = 0;
+        
     }
 }
