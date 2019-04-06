@@ -42,6 +42,8 @@ public class JH_Time_UI : MonoBehaviour
     public GameObject go_doubleSpeedButton;
     public GameObject go_skipButton;
 
+    private bool bl_dayDebug = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +73,12 @@ public class JH_Time_UI : MonoBehaviour
         if (bl_changeTime) StartCoroutine(TimeUpdate());
         ChangeClass();
         UpdateTimeButtons();
+
+        // Debug to move time quickly
+        if (Input.GetKeyDown(KeyCode.T)) Time.timeScale = 100;
+        if (Input.GetKeyUp(KeyCode.T)) Time.timeScale = 1;
+
+        if (Input.GetKeyDown(KeyCode.Y)) UpdateDay();
     }
 
     void UpdateDay()
