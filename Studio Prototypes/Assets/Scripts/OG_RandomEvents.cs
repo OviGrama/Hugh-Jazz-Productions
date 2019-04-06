@@ -28,10 +28,24 @@ public class OG_RandomEvents : MonoBehaviour {
     public GameObject[] StandardDeck;
     public GameObject[] RandomEvents;
 
+    //private int standardNum;
+
     // Use this for initialization
     void Start () {
 
         yearend_ref = GameObject.Find("GameManager").GetComponent<AC_YearEnd>();
+
+        for (int i = 0; i < StandardDeck.Length; i++)
+        {
+            StandardDeck[i].gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < StandardDeck.Length; i++)
+        {
+            RandomEvents[i] = StandardDeck[i];
+        }
+
+        in_TotalEvents = StandardDeck.Length;
 
         //for (int i = 0; i < GoodSchoolEvents.Length; i++)
         //{
@@ -43,11 +57,15 @@ public class OG_RandomEvents : MonoBehaviour {
         //    BadSchoolEvents[i].gameObject.SetActive(false);
         //}
 
-        for (int i = 0; i < StandardDeck.Length; i++)
+        if (bl_herosNumberReached)
         {
-            StandardDeck[i].gameObject.SetActive(false);
+            AddHeroDeck();
         }
 
+        if (bl_StaCoroutineStart)
+        {
+            StartCoroutine(StandardEventTrigger());
+        }
     }
 	
 	// Update is called once per frame
@@ -72,15 +90,6 @@ public class OG_RandomEvents : MonoBehaviour {
         //    StartCoroutine(ConditionalEventTrigger());
         //}
 
-        if (bl_herosNumberReached)
-        {
-            AddHeroDeck();
-        }
-
-        if (bl_StaCoroutineStart)
-        {
-            StartCoroutine(StandardEventTrigger());
-        }
     }
 
     //void EnableGoodRepEvent()
@@ -117,11 +126,10 @@ public class OG_RandomEvents : MonoBehaviour {
     
     void AddHeroDeck()
     {
-        in_TotalEvents = in_TotalEvents + HeroDeck.Length;
-
         for (int i = 0; i < HeroDeck.Length; i++)
         {
-            RandomEvents[i+RandomEvents.Length -1] = HeroDeck[i];
+            RandomEvents[in_TotalEvents + 1] = HeroDeck[i];
+            in_TotalEvents++;
         }
     }
 
