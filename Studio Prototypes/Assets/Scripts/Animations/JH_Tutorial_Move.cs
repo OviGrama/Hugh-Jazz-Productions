@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class JH_Tutorial_Move : MonoBehaviour
 {
@@ -14,13 +15,18 @@ public class JH_Tutorial_Move : MonoBehaviour
 
     public float fl_moveRange;
     public float fl_moveSpeed;
+    public int in_panelAmount;
+    private int in_currentPanel;
 
     public string st_mainMenu;
+
+    public GameObject previousButton;
+    public GameObject nextButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        v3_currentPosition = transform.position;
+        v3_currentPosition = transform.localPosition;
     }
 
     // Update is called once per frame
@@ -31,26 +37,40 @@ public class JH_Tutorial_Move : MonoBehaviour
         {
             SceneManager.LoadScene(st_mainMenu);
         }
+
+        if (in_currentPanel == 0) previousButton.GetComponent<Button>().interactable = false;
+        else previousButton.GetComponent<Button>().interactable = true;
+
+        if (in_currentPanel == in_panelAmount - 1) nextButton.GetComponent<Button>().interactable = false;
+        else nextButton.GetComponent<Button>().interactable = true;
     }
 
     public void NextPage()
     {
-        v3_moveTowards = new Vector3(v3_currentPosition.x + fl_moveRange, v3_currentPosition.y, v3_currentPosition.z);
-        bl_changePage = true;
+        if (!bl_changePage)
+        {
+            v3_moveTowards = new Vector3(v3_currentPosition.x - fl_moveRange, v3_currentPosition.y, v3_currentPosition.z);
+            bl_changePage = true;
+            in_currentPanel++;
+        }
     }
 
     public void PreviousPage()
     {
-        v3_moveTowards = new Vector3(v3_currentPosition.x - fl_moveRange, v3_currentPosition.y, v3_currentPosition.z);
-        bl_changePage = true;
+        if (!bl_changePage)
+        {
+            v3_moveTowards = new Vector3(v3_currentPosition.x + fl_moveRange, v3_currentPosition.y, v3_currentPosition.z);
+            bl_changePage = true;
+            in_currentPanel--;
+        }
     }
 
     void MovePage()
     {
-        transform.position = Vector3.MoveTowards(transform.position, v3_moveTowards, fl_moveSpeed);
-        if (transform.position == v3_moveTowards)
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, v3_moveTowards, fl_moveSpeed);
+        if (transform.localPosition == v3_moveTowards)
         {
-            v3_currentPosition = transform.position;
+            v3_currentPosition = transform.localPosition;
             bl_changePage = false;
         }
     }
