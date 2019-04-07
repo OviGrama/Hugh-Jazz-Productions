@@ -64,9 +64,17 @@ public class JH_Set_Class : MonoBehaviour
 
     private GameObject[] go_timetableManagers;
 
-    private JH_Quick_Set_Class resetDropdown;
+    private JH_Quick_Set_Class classManager;
 
     private int in_classAmount;
+
+    [Header("Student Modifiers")]
+    public int EQ_Modifier;
+    public int IQ_Modifier;
+    public int FL_Modifier;
+    public int SL_Modifier;
+    public int happiness_Modifier;
+    public int alignment_Modifier;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +86,7 @@ public class JH_Set_Class : MonoBehaviour
         go_timetableManagers[1] = GameObject.Find("ClassDrops2");
         go_timetableManagers[2] = GameObject.Find("ClassDrops3");
 
-        resetDropdown = GameObject.Find("SpecificClassesPanels").GetComponent<JH_Quick_Set_Class>();
+        classManager = GameObject.Find("SpecificClassesPanels").GetComponent<JH_Quick_Set_Class>();
         
     }
 
@@ -144,9 +152,9 @@ public class JH_Set_Class : MonoBehaviour
 
     public void ResetDropDown()
     {
-        for (int i = 0; i < resetDropdown.dd_classDropdowns.Length; i++)
+        for (int i = 0; i < classManager.dd_classDropdowns.Length; i++)
         {
-            resetDropdown.dd_classDropdowns[i].value = 0;
+            classManager.dd_classDropdowns[i].value = 0;
         }
         CloseDropDown();
     }
@@ -262,5 +270,49 @@ public class JH_Set_Class : MonoBehaviour
             in_classAmount = 0;
         }
 
+        if (go_setClass.GetComponent<JH_Quick_Set_Class>().firstPreviousClass == className)
+        {
+            if (go_setClass.GetComponent<JH_Quick_Set_Class>().firstCurrentClass != go_setClass.GetComponent<JH_Quick_Set_Class>().firstPreviousClass)
+            {
+                go_setClass.GetComponent<JH_Quick_Set_Class>().firstGroupEQChange = EQ_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().firstGroupIQChange = IQ_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().firstGroupFLChange = FL_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().firstGroupSLChange = SL_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().firstGroupHappinessChange = happiness_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().firstGroupAlignmentChange = alignment_Modifier;
+
+                go_setClass.GetComponent<JH_Quick_Set_Class>().firstPreviousClass = go_setClass.GetComponent<JH_Quick_Set_Class>().firstCurrentClass;
+            }
+        }
+
+        if (go_setClass.GetComponent<JH_Quick_Set_Class>().secondPreviousClass == className)
+        {
+            if (go_setClass.GetComponent<JH_Quick_Set_Class>().secondCurrentClass != go_setClass.GetComponent<JH_Quick_Set_Class>().secondPreviousClass)
+            {
+                go_setClass.GetComponent<JH_Quick_Set_Class>().secondGroupEQChange = EQ_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().secondGroupIQChange = IQ_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().secondGroupFLChange = FL_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().secondGroupSLChange = SL_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().secondGroupHappinessChange = happiness_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().secondGroupAlignmentChange = alignment_Modifier;
+
+                go_setClass.GetComponent<JH_Quick_Set_Class>().secondPreviousClass = go_setClass.GetComponent<JH_Quick_Set_Class>().secondCurrentClass;
+            }
+        }
+
+        if (go_setClass.GetComponent<JH_Quick_Set_Class>().thirdPreviousClass == className)
+        {
+            if (go_setClass.GetComponent<JH_Quick_Set_Class>().thirdCurrentClass != go_setClass.GetComponent<JH_Quick_Set_Class>().thirdPreviousClass)
+            {
+                go_setClass.GetComponent<JH_Quick_Set_Class>().thirdGroupEQChange = EQ_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().thirdGroupIQChange = IQ_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().thirdGroupFLChange = FL_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().thirdGroupSLChange = SL_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().thirdGroupHappinessChange = happiness_Modifier;
+                go_setClass.GetComponent<JH_Quick_Set_Class>().thirdGroupAlignmentChange = alignment_Modifier;
+
+                go_setClass.GetComponent<JH_Quick_Set_Class>().thirdPreviousClass = go_setClass.GetComponent<JH_Quick_Set_Class>().thirdCurrentClass;
+            }
+        }
     }
 }
