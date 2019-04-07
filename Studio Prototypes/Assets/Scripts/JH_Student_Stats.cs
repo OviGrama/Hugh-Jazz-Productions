@@ -12,9 +12,7 @@ public class JH_Student_Stats : MonoBehaviour
 
     public int happinessLevel;
     public int alignmentLevel;
-
-    private int maxStartStats;
-    private int minStartStats;
+    
     private int maxStartHappiness;
     private int minStartHappiness;
     private int maxStartAlignment;
@@ -38,17 +36,15 @@ public class JH_Student_Stats : MonoBehaviour
     {
         studentManager = GameObject.Find("Game").GetComponent<JH_Student_Manager>();
         timeManager = GameObject.Find("Date/TimePanel").GetComponent<JH_Time_UI>();
-        maxStartStats = studentManager.maxStartStats;
-        minStartStats = studentManager.minStartStats;
         maxStartHappiness = studentManager.maxStartHappiness;
         minStartHappiness = studentManager.minStartHappiness;
         maxStartAlignment = studentManager.maxStartAlignment;
         minStartAlignment = studentManager.minStartAlignment;
 
-        EQ = Random.Range(minStartStats, maxStartStats + 1);
-        IQ = Random.Range(minStartStats, maxStartStats + 1);
-        FL = Random.Range(minStartStats, maxStartStats + 1);
-        SL = Random.Range(minStartStats, maxStartStats + 1);
+        EQ = Random.Range(1, 31);
+        IQ = Random.Range(1, 51 - EQ);
+        FL = 50 - (EQ - IQ);
+        SL = Random.Range(1, 11);
         happinessLevel = Random.Range(minStartHappiness, maxStartHappiness + 1);
         alignmentLevel = Random.Range(minStartAlignment, maxStartAlignment + 1);
 
