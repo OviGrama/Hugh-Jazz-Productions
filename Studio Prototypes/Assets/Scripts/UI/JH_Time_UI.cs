@@ -7,6 +7,7 @@ public class JH_Time_UI : MonoBehaviour
 {
     // Connects to AC_YearEnd script so graduation function can be called by this script.
     private AC_YearEnd yearEnd;
+    private AC_WeekEnd weekEnd;
 
     public Text tx_year;
     public Text tx_week;
@@ -49,6 +50,7 @@ public class JH_Time_UI : MonoBehaviour
     {
         // So the this script doesnt lose the reference to the AC_YearEnd script.
         yearEnd = GameObject.Find("GameManager").GetComponent<AC_YearEnd>();
+        weekEnd = GameObject.Find("GameManager").GetComponent<AC_WeekEnd>();
 
         go_classManagers = new GameObject[3];
         in_time = 6;
@@ -90,14 +92,15 @@ public class JH_Time_UI : MonoBehaviour
         else
         {
             in_week += 1;
+            weekEnd.WeeklyStudentUpdate();
             dayNames = DayNames.MON;
         }
 
         if (in_week == 40)
         {
             in_year += 1;
-            in_week = 1;
             yearEnd.Graduation();
+            in_week = 1;
         }
     }
 

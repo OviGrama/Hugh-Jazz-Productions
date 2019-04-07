@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class AC_YearEnd : MonoBehaviour
 {
-    // Connects to AC_StudentSpawner script, to get info on each of the students info taht is attached to the student objects.
-    private AC_StudentSpawner studentSpawner;
+    // Connects to JH_Student_Manager script, to get info on each of the students info taht is attached to the student objects.
+    private JH_Student_Manager studentSpawner;
     // Connects to AC_SchoolStatsManager script, to get info on current school reputaion.
     private AC_SchoolStatsManager schoolStats;
     // Connect to JH_Control_Time script, to get the time when a year end.
     private JH_Time_UI timeUI;
+
     private OG_RandomEvents randomEvents_ref;
 
     // Variables that hold graduation pass grades.
@@ -19,26 +20,34 @@ public class AC_YearEnd : MonoBehaviour
     // Variables that hold the number of students that graduate.
     public int[] numberOfGraduates;
     public int numberOfSuperGraduates;
+    public int nonGraduatestsForYear;
     // Variables that hold what students do when they graduate.
     public int numberOfNormies;
     public int numberOfHeroes;
     public int numberOfSuperheroes;
     public int numberOfVillians;
     public int numberOfSupervillians;
+    // For world state.
+    public int heroesInWorld;
+    public int villiansInWorld;
     // Variables to hold the current student that is being checked, stats.
     private int currentStudentEQ;
     private int currentStudentIQ;
     private int currentStudentFL;
     private int currentStudentSL;
-    private float currentStudentALI;
+    private int currentStudentHAP;
+    private int currentStudentALI;
+
+    //
+    private int currentRep;
 
     // Start is called before the first frame update
     void Start()
     {
         randomEvents_ref = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
 
-        // So the this script doesnt lose the reference to the AC_StudentSpawner script.
-        studentSpawner = GameObject.Find("GameManager").GetComponent<AC_StudentSpawner>();
+        // So the this script doesnt lose the reference to the JH_Student_Manager script.
+        studentSpawner = GameObject.Find("Game").GetComponent<JH_Student_Manager>();
 
         // So the this script doesnt lose the reference to the AC_SchoolStatsManager script.
         schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
@@ -55,56 +64,101 @@ public class AC_YearEnd : MonoBehaviour
 
     public void Graduation()
     {
-        for (int i = 0; i < studentSpawner.numberOfStudents; i++)
+        currentRep = schoolStats.currentRep;
+
+        for (int i = 0; i < studentSpawner.go_studentList.Length; i++)
         {
-            currentStudentEQ = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().EQ;
-            currentStudentIQ = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().IQ;
-            currentStudentFL = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().FL;
-            currentStudentSL = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().SL;
-            currentStudentALI = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().fl_Allignment;
-
-            // Has the student passed.
-            if (currentStudentEQ + currentStudentIQ + currentStudentFL >= studentPassGrade)
+            if (studentSpawner.go_studentList[i] != null)
             {
-                // Increase the number of graduates.
-                numberOfGraduates[timeUI.in_year - 1]++;
 
-                // Is the graduate a super.
-                if (currentStudentSL >= superPassGrade)
+                currentStudentEQ = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().EQ;
+                currentStudentIQ = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().IQ;
+                currentStudentFL = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().FL;
+                currentStudentSL = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().SL;
+                currentStudentHAP = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().happinessLevel;
+                currentStudentALI = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().alignmentLevel;
 
+                // Has the student passed.
+                if (currentStudentEQ + currentStudentIQ + currentStudentFL >= studentPassGrade)
                 {
-                    // Increase the number of super graduates.
-                    numberOfSuperGraduates++;
+                    // Increase the number of graduates.
+                    numberOfGraduates[timeUI.in_year - 1]++;
 
-                    // Check to see what type of super powered individual the super graduate will become.
-                    if (currentStudentALI >= 85)
+                    // Is the graduate a super.
+                    if (currentStudentSL >= superPassGrade)
                     {
-                        numberOfSuperheroes++;
-                    }
+                        // Increase the number of super graduates.
+                        numberOfSuperGraduates++;
 
-                    if (currentStudentALI >= 65 & currentStudentALI < 85)
-                    {
-                        numberOfHeroes++;
-                    }
+                        // Check to see what type of super powered individual the super graduate will become.
+                        if (currentStudentALI >= 85)
+                        {
+                            numberOfSuperheroes++;
+                            heroesInWorld = heroesInWorld + 2;
+                        }
 
-                    if (currentStudentALI > 35 & currentStudentALI < 65 || currentStudentSL < superPassGrade)
-                    {
-                        numberOfNormies++;
-                    }
+                        if (currentStudentALI >= 65 & currentStudentALI < 85)
+                        {
+                            numberOfHeroes++;
+                            heroesInWorld++;
+                        }
 
-                    if (currentStudentALI < 15 & currentStudentALI <= 35)
-                    {
-                        numberOfVillians++;
-                    }
+                        if (currentStudentALI > 35 & currentStudentALI < 65 || currentStudentSL < superPassGrade)
+                        {
+                            numberOfNormies++;
+                        }
 
-                    if (currentStudentALI <= 15)
-                    {
-                        numberOfSupervillians++;
+                        if (currentStudentALI < 15 & currentStudentALI <= 35)
+                        {
+                            numberOfVillians++;
+                            villiansInWorld++;
+                        }
+
+                        if (currentStudentALI <= 15)
+                        {
+                            numberOfSupervillians++;
+                            villiansInWorld = villiansInWorld + 2;
+                        }
                     }
+                }
+                else
+                { 
+                    nonGraduatestsForYear++;
                 }
             }
         }
 
+        if (nonGraduatestsForYear > 0)
+        {
+            currentRep -= Mathf.RoundToInt(nonGraduatestsForYear / schoolStats.currentAvgHappy);
+        }
+
+        // Updates random event deck.
         randomEvents_ref.HeroVillainDeck();
+
+        // Clears student array.
+        for (int i = 0; i < studentSpawner.go_studentList.Length; i++)
+        {
+            if (studentSpawner.go_studentList[i] != null)
+            {
+                Destroy(studentSpawner.go_studentList[i]);
+            }
+        }
+
+        // Sets students number based of graduation results.
+
+        // Budget increase for the year.
+        schoolStats.currentMoney += 30000 + (currentRep * 500);
+
+        // Limits number of students to form sizes.
+        if (studentSpawner.in_dormUpgrades != 0)
+        {
+            studentSpawner.in_spawnAmount = 9 * studentSpawner.in_dormUpgrades;
+        }
+        else
+        {
+            studentSpawner.in_spawnAmount = 9;
+        }
+
     }
 }
