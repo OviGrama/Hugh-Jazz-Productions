@@ -26,8 +26,6 @@ public class JH_Student_Manager : MonoBehaviour
     public GameObject[] go_studentList;
 
     [Header("Starting Values")]
-    public int maxStartStats;
-    public int minStartStats;
     public int maxStartHappiness;
     public int minStartHappiness;
     public int maxStartAlignment;
