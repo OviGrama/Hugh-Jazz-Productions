@@ -23,12 +23,21 @@ public class JH_Student_Stats : MonoBehaviour
     public string superPower;
 
     private JH_Student_Manager studentManager;
+    private JH_Time_UI timeManager;
+
+    [HideInInspector] public int previousEQ;
+    [HideInInspector] public int previousIQ;
+    [HideInInspector] public int previousFL;
+    [HideInInspector] public int previousSL;
+    [HideInInspector] public int previousHappiness;
+    [HideInInspector] public int previousAlignment;
 
 
     // Start is called before the first frame update
     void Start()
     {
         studentManager = GameObject.Find("Game").GetComponent<JH_Student_Manager>();
+        timeManager = GameObject.Find("Date/TimePanel").GetComponent<JH_Time_UI>();
         maxStartStats = studentManager.maxStartStats;
         minStartStats = studentManager.minStartStats;
         maxStartHappiness = studentManager.maxStartHappiness;
@@ -51,11 +60,31 @@ public class JH_Student_Stats : MonoBehaviour
         {
             superPower = studentManager.mentalPowers[Random.Range(0, studentManager.mentalPowers.Length)];
         }
+
+        previousEQ = EQ;
+        previousIQ = IQ;
+        previousFL = FL;
+        previousSL = SL;
+        previousHappiness = happinessLevel;
+        previousAlignment = alignmentLevel;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (timeManager.dayNames == JH_Time_UI.DayNames.MON && timeManager.in_time == 9)
+        {
+            UpdateNewWeek();
+        }
+    }
+
+    void UpdateNewWeek()
+    {
+        previousEQ = EQ;
+        previousIQ = IQ;
+        previousFL = FL;
+        previousSL = SL;
+        previousHappiness = happinessLevel;
+        previousAlignment = alignmentLevel;
     }
 }
