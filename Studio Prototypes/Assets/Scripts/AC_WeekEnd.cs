@@ -5,27 +5,24 @@ using UnityEngine.UI;
 
 public class AC_WeekEnd : MonoBehaviour
 {
-    // Connect to JH_Control_Time script, to get the time when a year end.
-    private JH_Time_UI timeUI;
-
     // Connects to AC_StudentSpawner script, to get info on each of the students info taht is attached to the student objects.
-    private AC_StudentSpawner studentSpawner;
+    private JH_Student_Manager studentSpawner;
+    //
+    private AC_SchoolStatsManager schoolStats;
 
     // Variables to hold the current student that is being checked, stats.
-    private int currentStudentEQ;
-    private int currentStudentIQ;
-    private int currentStudentFL;
-    private int currentStudentSL;
-    private float currentStudentALI;
+    private int currentAverageHAP;
+    private int currentAverageALI;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // So the this script doesnt lose the reference to the JH_Control_Time script.
-        timeUI = GameObject.Find("Date/TimePanel").GetComponent<JH_Time_UI>();
-
         // So the this script doesnt lose the reference to the AC_StudentSpawner script.
-        studentSpawner = GameObject.Find("GameManager").GetComponent<AC_StudentSpawner>();
+        studentSpawner = GameObject.Find("Game").GetComponent<JH_Student_Manager>();
+
+        //
+        schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
     }
 
     // Update is called once per frame
@@ -36,14 +33,13 @@ public class AC_WeekEnd : MonoBehaviour
 
     public void WeeklyStudentUpdate()
     {
-        for (int i = 0; i < studentSpawner.numberOfStudents; i++)
+        for (int i = 0; i < studentSpawner.go_studentList.Length; i++)
         {
-            currentStudentEQ = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().EQ;
-            currentStudentIQ = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().IQ;
-            currentStudentFL = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().FL;
-            currentStudentSL = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().SL;
-            currentStudentALI = studentSpawner.go_Students[i].GetComponent<OG_StudentInfo>().fl_Allignment;
-
+            if (studentSpawner.go_studentList[i] != null)
+            {
+                currentAverageALI = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().happinessLevel;
+                currentAverageHAP = studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().alignmentLevel;
+            }
         }
     }
 }
