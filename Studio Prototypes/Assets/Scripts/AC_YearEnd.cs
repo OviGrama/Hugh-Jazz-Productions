@@ -54,7 +54,7 @@ public class AC_YearEnd : MonoBehaviour
         schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
 
         // So the this script doesnt lose the reference to the JH_Control_Time script.
-        timeUI = GameObject.Find("SchoolStatDropDown").GetComponent<JH_Time_UI>();
+        timeUI = GameObject.Find("Date/TimePanel").GetComponent<JH_Time_UI>();
     }
 
     // Update is called once per frame
@@ -83,7 +83,7 @@ public class AC_YearEnd : MonoBehaviour
                 if (currentStudentEQ + currentStudentIQ + currentStudentFL >= studentPassGrade)
                 {
                     // Increase the number of graduates.
-                    //numberOfGraduates[timeUI.in_year - 1]++;
+                    numberOfGraduates[timeUI.in_year - 2]++;
 
                     // Is the graduate a super.
                     if (currentStudentSL >= superPassGrade)

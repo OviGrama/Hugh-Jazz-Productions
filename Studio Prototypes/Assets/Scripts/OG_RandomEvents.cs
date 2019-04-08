@@ -225,6 +225,7 @@ public class OG_RandomEvents : MonoBehaviour {
     public void RestartTimer()
     {
         bl_StaCoroutineStart = true;
+        StartCoroutine(StandardEventTrigger());
     }
 
     #region Standard Events Actions
