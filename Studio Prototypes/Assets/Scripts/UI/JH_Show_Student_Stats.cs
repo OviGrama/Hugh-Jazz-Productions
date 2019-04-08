@@ -46,7 +46,7 @@ public class JH_Show_Student_Stats : MonoBehaviour
         
         tx_stats.text = studentName + "/r/n"
                         + "/r/n"
-                        + studentPower + "/r/n"
+                        + "Power: " + studentPower + "/r/n"
                         + "EQ: " + EQ + " (" + (previousEQ - EQ) + ")" + "/r/n"
                         + "IQ: " + IQ + " (" + (previousIQ - IQ) + ")" + "/r/n"
                         + "FL: " + FL + " (" + (previousFL - FL) + ")" + "/r/n"

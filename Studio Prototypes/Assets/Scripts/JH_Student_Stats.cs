@@ -76,6 +76,21 @@ public class JH_Student_Stats : MonoBehaviour
             UpdateNewWeek();
         }
 
+        
+    }
+
+    void UpdateNewWeek()
+    {
+        previousEQ = EQ;
+        previousIQ = IQ;
+        previousFL = FL;
+        previousSL = SL;
+        previousHappiness = happinessLevel;
+        previousAlignment = alignmentLevel;
+    }
+
+    void UpdateStats()
+    {
         if (go_studentStatList == null) go_studentStatList = GameObject.Find("StudentButtonListContent");
         else
         {
@@ -88,21 +103,29 @@ public class JH_Student_Stats : MonoBehaviour
                         go_studentStatList.transform.GetChild(i).GetChild(0).GetComponent<Text>().text =
                         GetComponent<JH_Student_Appearance>().studentName;
 
-                        in_listPosition = i;
+                        JH_Show_Student_Stats newStudentStats;
+
+                        newStudentStats = go_studentStatList.transform.GetChild(i).GetComponent<JH_Show_Student_Stats>();
+                        newStudentStats.EQ = EQ;
+                        newStudentStats.IQ = IQ;
+                        newStudentStats.FL = FL;
+                        newStudentStats.SL = SL;
+                        newStudentStats.happinessLevel = happinessLevel;
+                        newStudentStats.alignmentLevel = alignmentLevel;
+                        newStudentStats.previousEQ = previousEQ;
+                        newStudentStats.previousIQ = previousIQ;
+                        newStudentStats.previousFL = previousFL;
+                        newStudentStats.previousSL = previousSL;
+                        newStudentStats.previousHappiness = previousHappiness;
+                        newStudentStats.previousAlignment = previousAlignment;
+
                         return;
                     }
                 }
+
+
             }
         }
-    }
-
-    void UpdateNewWeek()
-    {
-        previousEQ = EQ;
-        previousIQ = IQ;
-        previousFL = FL;
-        previousSL = SL;
-        previousHappiness = happinessLevel;
-        previousAlignment = alignmentLevel;
+        
     }
 }
