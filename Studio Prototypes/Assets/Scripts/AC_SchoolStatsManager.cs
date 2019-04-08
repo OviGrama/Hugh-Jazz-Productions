@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class AC_SchoolStatsManager : MonoBehaviour
 {
+    // 
+    private AC_AudioManager audioManager;
 
     // Varaibles for the dropdown itself.
     public Dropdown dd_SchoolStats;
@@ -32,6 +34,10 @@ public class AC_SchoolStatsManager : MonoBehaviour
     public string currentAverageHappiness;
     public string currentAverageMorality;
 
+    private void Start()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AC_AudioManager>();
+    }
     void Update()
     {
         // Checks to see if any school stat has chnaged.
@@ -56,6 +62,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
         {
             MoralityUpdate();
             StatsUpdate();
+            audioManager.ChangeBackgroundMusic();
         }
     }
 
@@ -165,25 +172,31 @@ public class AC_SchoolStatsManager : MonoBehaviour
     {
         currentAvgMoral = avgMoral;
 
-        if (currentAvgMoral < 15)
+        if (currentAvgMoral <= 15)
         {
-            currentAverageMorality = "SuperVillian";
+            currentAverageMorality = "SuperVillain";
+            audioManager.villainMorality = true;
+
         }
-        else if (currentAvgMoral >= 15 && currentAvgMoral < 35)
+        else if (currentAvgMoral > 15 && currentAvgMoral <= 35)
         {
-            currentAverageMorality = "Villian";
+            currentAverageMorality = "Villain";
+            audioManager.villainMorality = true;
         }
-        else if (currentAvgMoral >= 35 && currentAvgMoral <= 65)
+        else if (currentAvgMoral > 35 && currentAvgMoral < 65)
         {
             currentAverageMorality = "Neutral";
+            audioManager.neutralMorality = true;
         }
-        else if (currentAvgMoral > 65 && currentAvgMoral <= 85)
+        else if (currentAvgMoral >= 65 && currentAvgMoral < 85)
         {
             currentAverageMorality = "Hero";
+            audioManager.heroMorality = true;
         }
-        else if (currentAvgMoral > 85)
+        else if (currentAvgMoral >= 85)
         {
             currentAverageMorality = "SuperHero";
+            audioManager.heroMorality = true;
         }
     }
 }

@@ -10,11 +10,11 @@ public class AC_AudioManager : MonoBehaviour
 
     // Holds all the background music.
     public AudioClip goodMusic;
-    public AudioClip normalMusic;
+    public AudioClip neutralMusic;
     public AudioClip badMusic;
     public bool heroMorality;
-    public bool nomralMorality;
-    public bool villianMorality;
+    public bool neutralMorality;
+    public bool villainMorality;
 
     // Grabs what will play the audio.
     public AudioSource audioSource;
@@ -29,7 +29,7 @@ public class AC_AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         // Sets the background to normal music.
-        audioSource.clip = normalMusic;
+        audioSource.clip = neutralMusic;
 
         // Plays the background music.
         audioSource.Play();
@@ -43,23 +43,6 @@ public class AC_AudioManager : MonoBehaviour
 
     public void ChangeBackgroundMusic()
     {
-        //if (schoolStats.currentAverageMorality == "Hero")
-        //{
-        //    audioSource.clip = goodMusic;
-        //    audioSource.Play();
-        //}
-
-        //if (schoolStats.currentAverageMorality == "Normal")
-        //{
-        //    audioSource.clip = goodMusic;
-        //    audioSource.Play();
-        //}
-
-        //if (schoolStats.currentAverageMorality == "Villian")
-        //{
-        //    audioSource.clip = goodMusic;
-        //    audioSource.Play();
-        //}
 
         if (heroMorality == true)
         {
@@ -68,20 +51,18 @@ public class AC_AudioManager : MonoBehaviour
             heroMorality = false;
         }
 
-        if (nomralMorality == true)
+        if (neutralMorality == true)
         {
-            audioSource.clip = normalMusic;
+            audioSource.clip = neutralMusic;
             audioSource.Play();
-            nomralMorality = false;
+            neutralMorality = false;
         }
 
-        if (villianMorality == true)
+        if (villainMorality == true)
         {
             audioSource.clip = badMusic;
             audioSource.Play();
-            villianMorality = false;
+            villainMorality = false;
         }
     }
-
-
 }

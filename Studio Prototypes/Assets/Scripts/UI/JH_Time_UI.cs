@@ -92,15 +92,15 @@ public class JH_Time_UI : MonoBehaviour
         else
         {
             in_week += 1;
-            weekEnd.WeeklyStudentUpdate();
             dayNames = DayNames.MON;
+            weekEnd.WeeklyStudentUpdate();
         }
 
         if (in_week == 40)
         {
             in_year += 1;
-            yearEnd.Graduation();
             in_week = 1;
+            yearEnd.Graduation();
         }
     }
 

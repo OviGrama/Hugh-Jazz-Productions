@@ -11,11 +11,11 @@ public class AC_WeekEnd : MonoBehaviour
     private AC_SchoolStatsManager schoolStats;
 
     // Variables to hold the current student that is being checked, stats.
-    private int currentTotalHAP;
-    private int currentTotalALI;
+    public int currentTotalHAP;
+    public int currentTotalALI;
     // 
-    private int currentAverageHAP;
-    private int currentAverageALI;
+    public int currentAverageHAP;
+    public int currentAverageALI;
 
 
 
@@ -51,8 +51,8 @@ public class AC_WeekEnd : MonoBehaviour
         }
 
         // Finds averages.
-        currentAverageHAP = currentTotalHAP / studentSpawner.go_studentList.Length;
-        currentAverageALI = currentTotalALI / studentSpawner.go_studentList.Length;
+        currentAverageHAP = currentTotalHAP / studentSpawner.numberOfStudents;
+        currentAverageALI = currentTotalALI / studentSpawner.numberOfStudents;
 
         // Updates the school stats dropdown.
         schoolStats.avgHappy = currentAverageHAP;
