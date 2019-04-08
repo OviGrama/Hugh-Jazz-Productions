@@ -97,9 +97,12 @@ public class OG_RandomEvents : MonoBehaviour {
 
     }
 
+    // 
+    private int currentEvent;
     void EnableStandardEvent()
     {
         int i = Random.Range(0, StandardDeck.Length);
+        currentEvent = i;
         StandardDeck[i].gameObject.SetActive(true);
         Time.timeScale = 0;
     }
@@ -226,6 +229,7 @@ public class OG_RandomEvents : MonoBehaviour {
     {
         bl_StaCoroutineStart = true;
         StartCoroutine(StandardEventTrigger());
+        StandardDeck[currentEvent].gameObject.SetActive(false);
     }
 
     #region Standard Events Actions
