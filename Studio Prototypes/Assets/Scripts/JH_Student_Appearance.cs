@@ -9,6 +9,9 @@ public class JH_Student_Appearance : MonoBehaviour
     private bool bl_setupFinished;
     public string studentName;
 
+    public Sprite studentBody;
+    public Sprite studentHead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +31,14 @@ public class JH_Student_Appearance : MonoBehaviour
 
         int body = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().bodyList.Length);
         transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = go_studentManager.GetComponent<JH_Student_Manager>().bodyList[body];
+        studentBody = go_studentManager.GetComponent<JH_Student_Manager>().bodyList[body];
 
         // Assigns random female head and first name
         if (gender == 1)
         {
             int head = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().femaleHeadList.Length);
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = go_studentManager.GetComponent<JH_Student_Manager>().femaleHeadList[head];
+            studentHead = go_studentManager.GetComponent<JH_Student_Manager>().femaleHeadList[head];
 
             int firstName = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().femaleFirstNames.Length);
             int surname = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().surnameList.Length);
@@ -46,6 +51,7 @@ public class JH_Student_Appearance : MonoBehaviour
         {
             int head = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().maleHeadList.Length);
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = go_studentManager.GetComponent<JH_Student_Manager>().maleHeadList[head];
+            studentHead = go_studentManager.GetComponent<JH_Student_Manager>().maleHeadList[head];
 
             int firstName = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().maleFirstNames.Length);
             int surname = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().surnameList.Length);

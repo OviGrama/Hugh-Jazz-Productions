@@ -76,7 +76,7 @@ public class JH_Student_Stats : MonoBehaviour
             UpdateNewWeek();
         }
 
-        
+        UpdateStats();
     }
 
     void UpdateNewWeek()
@@ -98,14 +98,18 @@ public class JH_Student_Stats : MonoBehaviour
             {
                 for (int i = 0; i < studentManager.GetComponent<JH_Student_Manager>().go_studentList.Length; i++)
                 {
-                    if (studentManager.GetComponent<JH_Student_Manager>().go_studentList[i] == gameObject)
+                    if (studentManager.GetComponent<JH_Student_Manager>().go_studentList[i].gameObject == gameObject)
                     {
                         go_studentStatList.transform.GetChild(i).GetChild(0).GetComponent<Text>().text =
                         GetComponent<JH_Student_Appearance>().studentName;
 
+
+
                         JH_Show_Student_Stats newStudentStats;
 
                         newStudentStats = go_studentStatList.transform.GetChild(i).GetComponent<JH_Show_Student_Stats>();
+                        newStudentStats.studentName = GetComponent<JH_Student_Appearance>().studentName;
+                        newStudentStats.studentPower = superPower;
                         newStudentStats.EQ = EQ;
                         newStudentStats.IQ = IQ;
                         newStudentStats.FL = FL;
@@ -118,6 +122,8 @@ public class JH_Student_Stats : MonoBehaviour
                         newStudentStats.previousSL = previousSL;
                         newStudentStats.previousHappiness = previousHappiness;
                         newStudentStats.previousAlignment = previousAlignment;
+                        newStudentStats.studentBody = GetComponent<JH_Student_Appearance>().studentBody;
+                        newStudentStats.studentHead = GetComponent<JH_Student_Appearance>().studentHead;
 
                         return;
                     }
