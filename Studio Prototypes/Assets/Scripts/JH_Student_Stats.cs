@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JH_Student_Stats : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class JH_Student_Stats : MonoBehaviour
     [HideInInspector] public int previousHappiness;
     [HideInInspector] public int previousAlignment;
 
+    private GameObject go_studentStatList;
+    private int in_listPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +74,25 @@ public class JH_Student_Stats : MonoBehaviour
         if (timeManager.dayNames == JH_Time_UI.DayNames.MON && timeManager.in_time == 9)
         {
             UpdateNewWeek();
+        }
+
+        if (go_studentStatList == null) go_studentStatList = GameObject.Find("StudentButtonListContent");
+        else
+        {
+            if (go_studentStatList.activeInHierarchy)
+            {
+                for (int i = 0; i < studentManager.GetComponent<JH_Student_Manager>().go_studentList.Length; i++)
+                {
+                    if (studentManager.GetComponent<JH_Student_Manager>().go_studentList[i] == gameObject)
+                    {
+                        go_studentStatList.transform.GetChild(i).GetChild(0).GetComponent<Text>().text =
+                        GetComponent<JH_Student_Appearance>().studentName;
+
+                        in_listPosition = i;
+                        return;
+                    }
+                }
+            }
         }
     }
 
