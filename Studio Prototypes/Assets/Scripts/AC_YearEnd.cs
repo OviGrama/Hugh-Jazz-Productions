@@ -12,7 +12,7 @@ public class AC_YearEnd : MonoBehaviour
     // Connect to JH_Control_Time script, to get the time when a year end.
     private JH_Time_UI timeUI;
 
-    private OG_RandomEvents randomEvents_ref;
+    private OG_RandomEvents randomEvents;
 
     // Variables that hold graduation pass grades.
     public int studentPassGrade;
@@ -38,13 +38,14 @@ public class AC_YearEnd : MonoBehaviour
     private int currentStudentHAP;
     private int currentStudentALI;
 
+
     //
     private int currentRep;
 
     // Start is called before the first frame update
     void Start()
     {
-        randomEvents_ref = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
+        randomEvents = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
 
         // So the this script doesnt lose the reference to the JH_Student_Manager script.
         studentSpawner = GameObject.Find("Game").GetComponent<JH_Student_Manager>();
@@ -82,7 +83,7 @@ public class AC_YearEnd : MonoBehaviour
                 if (currentStudentEQ + currentStudentIQ + currentStudentFL >= studentPassGrade)
                 {
                     // Increase the number of graduates.
-                    numberOfGraduates[timeUI.in_year - 1]++;
+                    //numberOfGraduates[timeUI.in_year - 1]++;
 
                     // Is the graduate a super.
                     if (currentStudentSL >= superPassGrade)
@@ -94,21 +95,21 @@ public class AC_YearEnd : MonoBehaviour
                         if (currentStudentALI >= 85)
                         {
                             numberOfSuperheroes++;
-                            heroesInWorld = heroesInWorld + 2;
+                            heroesInWorld += 2;
                         }
 
-                        if (currentStudentALI >= 65 & currentStudentALI < 85)
+                        if (currentStudentALI >= 65 && currentStudentALI < 85)
                         {
                             numberOfHeroes++;
                             heroesInWorld++;
                         }
 
-                        if (currentStudentALI > 35 & currentStudentALI < 65 || currentStudentSL < superPassGrade)
+                        if (currentStudentALI > 35 && currentStudentALI < 65 || currentStudentSL < superPassGrade)
                         {
                             numberOfNormies++;
                         }
 
-                        if (currentStudentALI < 15 & currentStudentALI <= 35)
+                        if (currentStudentALI > 15 && currentStudentALI <= 35)
                         {
                             numberOfVillians++;
                             villiansInWorld++;
@@ -117,7 +118,7 @@ public class AC_YearEnd : MonoBehaviour
                         if (currentStudentALI <= 15)
                         {
                             numberOfSupervillians++;
-                            villiansInWorld = villiansInWorld + 2;
+                            villiansInWorld += 2;
                         }
                     }
                 }
@@ -133,8 +134,17 @@ public class AC_YearEnd : MonoBehaviour
             currentRep -= Mathf.RoundToInt(nonGraduatestsForYear / schoolStats.currentAvgHappy);
         }
 
+
         // Updates random event deck.
-        randomEvents_ref.HeroVillainDeck();
+        if (heroesInWorld >= 10)
+        {
+            randomEvents.bl_herosNumberReached = true;
+        }
+        if (villiansInWorld >= 10)
+        {
+            randomEvents.bl_villainsNumberReached = true;
+        }
+        randomEvents.HeroVillainDecks();
 
         // Clears student array.
         for (int i = 0; i < studentSpawner.go_studentList.Length; i++)
@@ -159,6 +169,8 @@ public class AC_YearEnd : MonoBehaviour
         {
             studentSpawner.in_spawnAmount = 9;
         }
+
+        studentSpawner.SpawnStudents();
 
     }
 }

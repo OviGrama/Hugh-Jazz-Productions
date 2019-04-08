@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JH_Student_Manager : MonoBehaviour
 {
+    // Aidan's reference to current number of students.
+    public int numberOfStudents;
 
     [Header("Appearance Sprites")]
     public Sprite[] bodyList;
@@ -49,7 +51,7 @@ public class JH_Student_Manager : MonoBehaviour
         
     }
 
-    void SpawnStudents()
+    public void SpawnStudents()
     {
         for (int i = 0; i < in_spawnAmount; i++)
         {
@@ -61,7 +63,7 @@ public class JH_Student_Manager : MonoBehaviour
 
             in_amountSpawned++;
         }
-
+        numberOfStudents = in_spawnAmount;
         in_spawnAmount = 0;
         in_amountSpawned = 0;
     }

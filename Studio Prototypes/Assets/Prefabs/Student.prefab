@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4635136812217265144}
   - component: {fileID: 4366673050802190259}
-  - component: {fileID: 5899309991365212870}
-  - component: {fileID: 1658799804610357406}
-  - component: {fileID: 1606648335461336163}
   - component: {fileID: 8137689500635511083}
+  - component: {fileID: 5899309991365212870}
+  - component: {fileID: 1606648335461336163}
+  - component: {fileID: 1658799804610357406}
   m_Layer: 0
   m_Name: Student
   m_TagString: Untagged
@@ -50,6 +50,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groupNumber: 0
+--- !u!114 &8137689500635511083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502007527992623520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93358e0ee62745140ab08d0a7b8c5fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EQ: 0
+  IQ: 0
+  FL: 0
+  SL: 0
+  happinessLevel: 0
+  alignmentLevel: 0
+  superPower: 
+  previousEQ: 0
+  previousIQ: 0
+  previousFL: 0
+  previousSL: 0
+  previousHappiness: 0
+  previousAlignment: 0
 --- !u!195 &5899309991365212870
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -72,6 +97,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1606648335461336163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502007527992623520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a92dec4c3397146b7bfdb1a0cd0171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  studentName: 
 --- !u!114 &1658799804610357406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,40 +168,6 @@ MonoBehaviour:
   sl_HappinessBar: {fileID: 0}
   fl_Allignment: 0
   sl_AllignmentBar: {fileID: 0}
---- !u!114 &1606648335461336163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502007527992623520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a92dec4c3397146b7bfdb1a0cd0171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  studentName: 
---- !u!114 &8137689500635511083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502007527992623520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93358e0ee62745140ab08d0a7b8c5fdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EQ: 0
-  IQ: 0
-  FL: 0
-  SL: 0
-  happinessLevel: 0
-  alignmentLevel: 0
-  physicalPowers: []
-  mentalPowers: []
-  superPower: 
 --- !u!1 &3203048521091564512
 GameObject:
   m_ObjectHideFlags: 0
