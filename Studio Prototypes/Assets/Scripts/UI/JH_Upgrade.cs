@@ -11,7 +11,10 @@ public class JH_Upgrade : MonoBehaviour
     public GameObject[] go_enable;
     public GameObject[] go_disable;
     public GameObject[] go_unlock;
-    
+
+    // Array for the interactive Buttons that will be enabled
+    public Button[] go_interactive;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +61,16 @@ public class JH_Upgrade : MonoBehaviour
             for (int i = 0; i < go_enable.Length; i++)
             {
                 go_enable[i].SetActive(true);
+            }
+        }
+
+
+        // Disables interactivity of GameObjects
+        if (go_interactive.Length > 0)
+        {
+            for (int i = 0; i < go_interactive.Length; i++)
+            {
+                go_interactive[i].interactable = true;
             }
         }
 
