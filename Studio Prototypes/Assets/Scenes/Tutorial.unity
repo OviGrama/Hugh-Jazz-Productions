@@ -388,7 +388,7 @@ MonoBehaviour:
   fl_moveRange: 700
   fl_moveSpeed: 10
   in_panelAmount: 13
-  st_mainMenu: 
+  st_mainMenu: MainMenu
   previousButton: {fileID: 758863214}
   nextButton: {fileID: 903088622}
 --- !u!224 &103498699
