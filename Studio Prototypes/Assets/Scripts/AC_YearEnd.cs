@@ -32,6 +32,7 @@ public class AC_YearEnd : MonoBehaviour
     // For world state.
     public int heroesInWorld;
     public int villiansInWorld;
+    public int superDifference;
     // Variables to hold the current student that is being checked, stats.
     private int currentStudentEQ;
     private int currentStudentIQ;
@@ -139,19 +140,74 @@ public class AC_YearEnd : MonoBehaviour
         }
 
 
-        // Updates random event deck.
+        // Number of Hero and Villian in the world.
+
+        // Resets world state booleans.
+        worldState.neutralWorld = false;
+        worldState.heroWorld = false;
+        worldState.villainWorld = false;
+        worldState.equalWorld = false;
+        worldState.heroLeadingWorld = false;
+        worldState.villainWorld = false;
+
+        // Updates random event deck and world state.
         if (heroesInWorld >= 10)
         {
             randomEvents.bl_herosNumberReached = true;
             worldState.heroWorld = true;
         }
+
         if (villiansInWorld >= 10)
         {
             randomEvents.bl_villainsNumberReached = true;
             worldState.villainWorld = true;
         }
+
+        if (worldState.heroWorld == false && worldState.villainWorld == false)
+        {
+            worldState.neutralWorld = true;
+        }
+
+        if (worldState.heroWorld == true && worldState.villainWorld == true)
+        {
+            worldState.equalWorld = true;
+        }
+
+        // Calculates the difference between heroes and villains in order to find who is in the lead. 
+        superDifference = heroesInWorld - villiansInWorld;
+
+        if (superDifference < 0)
+        {
+            superDifference = superDifference * -1;
+
+            if (superDifference > 10)
+            {
+                if (worldState.equalWorld == true)
+                {
+                    worldState.equalWorld = false;
+                    worldState.villainLeadingWorld = true;
+                    worldState.heroWorld = false;
+                    worldState.villainWorld = false;
+                }
+            }
+        }
+        else
+        {
+            if (superDifference > 10)
+            {
+                if (worldState.equalWorld == true)
+                {
+                    worldState.equalWorld = false;
+                    worldState.heroLeadingWorld = true;
+                    worldState.heroWorld = false;
+                    worldState.villainWorld = false;
+                }
+            }
+        }
+
         randomEvents.HeroVillainDecks();
         worldState.ChangeWorldState();
+
 
         // Clears student array.
         for (int i = 0; i < studentSpawner.go_studentList.Length; i++)

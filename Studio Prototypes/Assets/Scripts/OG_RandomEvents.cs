@@ -9,6 +9,11 @@ public class OG_RandomEvents : MonoBehaviour {
 
     // private JH_Time_UI timeUI;
 
+    // Randomised Timer.
+    public int minTime;
+    public int maxTime;
+
+
     public float fl_StandardEventTimer;
 
 
@@ -96,6 +101,13 @@ public class OG_RandomEvents : MonoBehaviour {
         //}
 
     }
+
+    // Randomises the time for the next Random Event.
+    public void RandomTime()
+    {
+        fl_StandardEventTimer = Random.Range(minTime, maxTime);
+    }
+
 
     // 
     private int currentEvent;
@@ -227,6 +239,7 @@ public class OG_RandomEvents : MonoBehaviour {
 
     public void RestartTimer()
     {
+        RandomTime();
         bl_StaCoroutineStart = true;
         StartCoroutine(StandardEventTrigger());
         StandardDeck[currentEvent].gameObject.SetActive(false);
