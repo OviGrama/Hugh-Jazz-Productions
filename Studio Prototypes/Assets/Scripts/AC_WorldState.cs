@@ -7,18 +7,18 @@ public class AC_WorldState : MonoBehaviour
 {
 
     public GameObject go_DescriptionText;
-    //public GameObject go_DescriptionImage;
+    public GameObject go_DescriptionImage;
 
     public Text currentText;
-    //public Image currentImage;
+    public Image currentImage;
 
     // Holds Images for world state chanegs.
-    //public Image heroImage;
-    //public Image neutralImage;
-    //public Image villainImage;
-    //public Image equalImage;
-    //public Image heroLeadingImage;
-    //public Image villainLeadingImage;
+    public Image heroImage;
+    public Image neutralImage;
+    public Image villainImage;
+    public Image equalImage;
+    public Image heroLeadingImage;
+    public Image villainLeadingImage;
 
     public bool heroWorld;
     public bool neutralWorld;
@@ -31,10 +31,10 @@ public class AC_WorldState : MonoBehaviour
     void Start()
     {
         currentText = go_DescriptionText.GetComponent<Text>();
-        //currentImage = go_DescriptionImage.GetComponent<Image>();
+        currentImage = go_DescriptionImage.GetComponent<Image>();
 
         currentText.text = "Neutral";
-        //currentImage = neutralImage;
+        currentImage = neutralImage;
         neutralWorld = true;
 
     }
@@ -50,37 +50,37 @@ public class AC_WorldState : MonoBehaviour
         if (neutralWorld == true)
         {
             currentText.text = "Neutral";
-            //currentImage = neutralImage;
+            currentImage = neutralImage;
         }
 
         if (heroWorld == true)
         {
             currentText.text = "Heros";
-            //currentImage = heroImage;
+            currentImage = heroImage;
         }
 
         if (villainWorld == true)
         {
             currentText.text = "Villains";
-            //currentImage = villainImage;
+            currentImage = villainImage;
         }
 
         if (equalWorld == true)
         {
             currentText.text = "Equal";
-            //currentImage = equalImage;
+            currentImage = equalImage;
         }
 
         if (heroLeadingWorld == true)
         {
             currentText.text = "Heroes Leading";
-            //currentImage = heroLeadingImage;
+            currentImage = heroLeadingImage;
         }
 
         if (villainLeadingWorld == true)
         {
             currentText.text = "Villains Leading";
-            //currentImage = villainImage;
+            currentImage = villainImage;
         }
     }
 }

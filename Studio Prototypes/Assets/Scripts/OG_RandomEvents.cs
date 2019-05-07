@@ -165,13 +165,13 @@ public class OG_RandomEvents : MonoBehaviour {
         Debug.Log("Good Rep and Bad Rep Deck Check");
 
         // Calls add hero deck function if number of heroes in world is reached.
-        if (goodRep == true && heroDeckAdded == false)
+        if (goodRep == true && goodRepDeckAdded == false)
         {
             Debug.Log("Good Rep Deck, Adding Now");
             AddGoodRepDeck();
         }
         // Calls add villain deck function if number of villains in world is reached.
-        if (badRep == true)
+        if (badRep == true && badRepDeckAdded == false)
         {
             Debug.Log("Bad Rep Deck, Adding Now");
             AddBadRepDeck();
@@ -196,6 +196,11 @@ public class OG_RandomEvents : MonoBehaviour {
                 badRepDeckAdded = false;
                 goodRepDeckAdded = true;
             }
+
+            //else
+            //{
+                 // This might be needed for neutral school rep after deck has been added
+            //}
         }
         else
         {
