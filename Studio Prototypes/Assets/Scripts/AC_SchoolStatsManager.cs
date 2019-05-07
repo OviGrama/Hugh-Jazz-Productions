@@ -7,6 +7,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
 {
     // 
     private AC_AudioManager audioManager;
+    private OG_RandomEvents randomEvents;
 
     // Varaibles for the dropdown itself.
     public Dropdown dd_SchoolStats;
@@ -37,6 +38,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
     private void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AC_AudioManager>();
+        randomEvents = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
     }
     void Update()
     {
@@ -118,13 +120,18 @@ public class AC_SchoolStatsManager : MonoBehaviour
     {
         currentRep = schoolRep;
 
+        randomEvents.goodRep = false;
+        randomEvents.badRep = false;
+
         if (currentRep < 15)
         {
             currentSchoolReputation = "Terriable";
+            randomEvents.badRep = true;
         }
         else if (currentRep >= 15 && currentRep < 35)
         {
             currentSchoolReputation = "Poor";
+            randomEvents.badRep = true;
         }
         else if (currentRep >= 35 && currentRep <= 65)
         {
@@ -133,11 +140,15 @@ public class AC_SchoolStatsManager : MonoBehaviour
         else if (currentRep > 65 && currentRep <= 85)
         {
             currentSchoolReputation = "Good";
+            randomEvents.goodRep = true;
         }
         else if (currentRep > 85)
         {
             currentSchoolReputation = "Outstanding";
+            randomEvents.goodRep = true;
         }
+
+        randomEvents.GoodRepBadRepDecks();
     }
 
     // Updates happiness string depending on what morality of all students is.
