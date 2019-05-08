@@ -39,6 +39,9 @@ public class AC_SchoolStatsManager : MonoBehaviour
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AC_AudioManager>();
         randomEvents = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
+
+        // Does first check so the games music can start.
+        MoralityUpdate();
     }
     void Update()
     {
@@ -186,7 +189,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
         if (currentAvgMoral <= 15)
         {
             currentAverageMorality = "SuperVillain";
-            audioManager.villainMorality = true;
+            audioManager.supervillainMorality = true;
 
         }
         else if (currentAvgMoral > 15 && currentAvgMoral <= 35)
@@ -207,7 +210,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
         else if (currentAvgMoral >= 85)
         {
             currentAverageMorality = "SuperHero";
-            audioManager.heroMorality = true;
+            audioManager.superheroMorality = true;
         }
     }
 }
