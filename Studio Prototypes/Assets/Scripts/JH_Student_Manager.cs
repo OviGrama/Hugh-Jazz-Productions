@@ -37,6 +37,16 @@ public class JH_Student_Manager : MonoBehaviour
     public string[] physicalPowers;
     public string[] mentalPowers;
 
+    [Header("Bathrooms")]
+    public GameObject go_mBathroom;
+    public GameObject go_fBathroom;
+
+    public enum StudentGender
+    {
+        Male,
+        Female
+    }
+
     // Start is called before the first frame update
     void Start()
     {

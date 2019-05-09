@@ -12,6 +12,8 @@ public class JH_Student_Appearance : MonoBehaviour
     public Sprite studentBody;
     public Sprite studentHead;
 
+    public JH_Student_Manager.StudentGender studentGender;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class JH_Student_Appearance : MonoBehaviour
         // Assigns random female head and first name
         if (gender == 1)
         {
+            studentGender = JH_Student_Manager.StudentGender.Female;
             int head = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().femaleHeadList.Length);
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = go_studentManager.GetComponent<JH_Student_Manager>().femaleHeadList[head];
             studentHead = go_studentManager.GetComponent<JH_Student_Manager>().femaleHeadList[head];
@@ -49,6 +52,7 @@ public class JH_Student_Appearance : MonoBehaviour
         // Assigns random male head and first name
         else
         {
+            studentGender = JH_Student_Manager.StudentGender.Male;
             int head = Random.Range(0, go_studentManager.GetComponent<JH_Student_Manager>().maleHeadList.Length);
             transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = go_studentManager.GetComponent<JH_Student_Manager>().maleHeadList[head];
             studentHead = go_studentManager.GetComponent<JH_Student_Manager>().maleHeadList[head];
