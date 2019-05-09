@@ -31,6 +31,9 @@ public class JH_Student_Stats : MonoBehaviour
     [HideInInspector] public int previousHappiness;
     [HideInInspector] public int previousAlignment;
 
+    public int bladderLevel;
+    private bool changeBladder = true;
+
     private GameObject go_studentStatList;
     private int in_listPosition;
 
@@ -39,6 +42,9 @@ public class JH_Student_Stats : MonoBehaviour
     {
         studentManager = GameObject.Find("Game").GetComponent<JH_Student_Manager>();
         timeManager = GameObject.Find("Date/TimePanel").GetComponent<JH_Time_UI>();
+
+        bladderLevel = Random.Range(30, 91);
+
         maxStartHappiness = studentManager.maxStartHappiness;
         minStartHappiness = studentManager.minStartHappiness;
         maxStartAlignment = studentManager.maxStartAlignment;
@@ -77,6 +83,14 @@ public class JH_Student_Stats : MonoBehaviour
         }
 
         UpdateStats();
+
+        if (timeManager.in_time >= 7 && timeManager.in_time <= 17)
+        {
+            if (!GetComponent<JH_Student_Move>().bl_usingBathroom && changeBladder)
+            {
+                StartCoroutine(ReduceBladder());
+            }
+        }
     }
 
     void UpdateNewWeek()
@@ -133,5 +147,13 @@ public class JH_Student_Stats : MonoBehaviour
             }
         }
         
+    }
+
+    IEnumerator ReduceBladder()
+    {
+        changeBladder = false;
+        yield return new WaitForSeconds(Random.Range(1f, 2.5f));
+        bladderLevel--;
+        changeBladder = true;
     }
 }
