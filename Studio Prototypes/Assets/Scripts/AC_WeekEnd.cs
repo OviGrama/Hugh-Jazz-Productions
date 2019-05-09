@@ -20,7 +20,7 @@ public class AC_WeekEnd : MonoBehaviour
 
 
     // Start is called before the first frame update.
-    void Start()
+    void Awake()
     {
         // So the this script doesnt lose the reference to the JH_Student_Manager script.
         studentSpawner = GameObject.Find("Game").GetComponent<JH_Student_Manager>();
@@ -37,6 +37,7 @@ public class AC_WeekEnd : MonoBehaviour
 
     public void WeeklyStudentUpdate()
     {
+        Debug.Log("Week Update");
         currentTotalHAP = 0;
         currentTotalALI = 0;
 
@@ -49,6 +50,8 @@ public class AC_WeekEnd : MonoBehaviour
                 currentTotalALI += studentSpawner.go_studentList[i].GetComponent<JH_Student_Stats>().alignmentLevel;
             }
         }
+
+        Debug.Log("Average Check");
 
         // Finds averages.
         currentAverageHAP = currentTotalHAP / studentSpawner.numberOfStudents;

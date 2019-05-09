@@ -9,12 +9,17 @@ public class AC_AudioManager : MonoBehaviour
     private AC_SchoolStatsManager schoolStats;
 
     // Holds all the background music.
-    public AudioClip goodMusic;
+    public AudioClip superheroMusic;
+    public AudioClip heroMusic;
     public AudioClip neutralMusic;
-    public AudioClip badMusic;
+    public AudioClip villainMusic;
+    public AudioClip supervillainMusic;
+
+    public bool superheroMorality;
     public bool heroMorality;
     public bool neutralMorality;
     public bool villainMorality;
+    public bool supervillainMorality;
 
     // Grabs what will play the audio.
     public AudioSource audioSource;
@@ -28,10 +33,8 @@ public class AC_AudioManager : MonoBehaviour
         // Starts the game on normal background music.
         audioSource = GetComponent<AudioSource>();
 
-        // Sets the background to normal music.
+        //
         audioSource.clip = neutralMusic;
-
-        // Plays the background music.
         audioSource.Play();
     }
 
@@ -43,10 +46,16 @@ public class AC_AudioManager : MonoBehaviour
 
     public void ChangeBackgroundMusic()
     {
+        if (superheroMorality == true)
+        {
+            audioSource.clip = superheroMusic;
+            audioSource.Play();
+            superheroMorality = false;
+        }
 
         if (heroMorality == true)
         {
-            audioSource.clip = goodMusic;
+            audioSource.clip = heroMusic;
             audioSource.Play();
             heroMorality = false;
         }
@@ -60,9 +69,16 @@ public class AC_AudioManager : MonoBehaviour
 
         if (villainMorality == true)
         {
-            audioSource.clip = badMusic;
+            audioSource.clip = villainMusic;
             audioSource.Play();
             villainMorality = false;
+        }
+
+        if (supervillainMorality == true)
+        {
+            audioSource.clip = supervillainMusic;
+            audioSource.Play();
+            supervillainMorality = false;
         }
     }
 }
