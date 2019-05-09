@@ -11,9 +11,11 @@ public class AC_YearEnd : MonoBehaviour
     private AC_SchoolStatsManager schoolStats;
     // Connect to JH_Control_Time script, to get the time when a year end.
     private JH_Time_UI timeUI;
-
+    // Connects to the AC_GameOver script.
+    private AC_GameOver gameOver;
+    //
     private AC_WorldState worldState;
-
+    //
     private OG_RandomEvents randomEvents;
 
     // Variables that hold graduation pass grades.
@@ -41,15 +43,19 @@ public class AC_YearEnd : MonoBehaviour
     private int currentStudentHAP;
     private int currentStudentALI;
 
+    public int passRate;
+    public int currentYear;
 
     //
     private int currentRep;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        //
         worldState = GameObject.Find("GameManager").GetComponent<AC_WorldState>();
 
+        //
         randomEvents = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
 
         // So the this script doesnt lose the reference to the JH_Student_Manager script.
@@ -60,6 +66,9 @@ public class AC_YearEnd : MonoBehaviour
 
         // So the this script doesnt lose the reference to the JH_Control_Time script.
         timeUI = GameObject.Find("Date/TimePanel").GetComponent<JH_Time_UI>();
+
+        //
+        gameOver = GameObject.Find("GameManager").GetComponent<AC_GameOver>();
     }
 
     // Update is called once per frame
@@ -218,7 +227,17 @@ public class AC_YearEnd : MonoBehaviour
             }
         }
 
+
+        currentYear = timeUI.in_year;
+        // Ends the game if 25 years have passed.
+        if (currentYear == 26)
+        {
+            gameOver.Year25RetirementEnd();
+        }
+
+        
         // Sets students number based of graduation results.
+        passRate = Mathf.RoundToInt( numberOfGraduates[currentYear] / studentSpawner.numberOfStudents );
 
         // Budget increase for the year.
         schoolStats.currentMoney += 30000 + (currentRep * 500);

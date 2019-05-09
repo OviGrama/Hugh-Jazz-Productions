@@ -8,6 +8,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
     // 
     private AC_AudioManager audioManager;
     private OG_RandomEvents randomEvents;
+    private AC_WeekEnd weekEnd;
 
     // Varaibles for the dropdown itself.
     public Dropdown dd_SchoolStats;
@@ -35,13 +36,12 @@ public class AC_SchoolStatsManager : MonoBehaviour
     public string currentAverageHappiness;
     public string currentAverageMorality;
 
-    private void Start()
+    private void Awake()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AC_AudioManager>();
         randomEvents = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
+        weekEnd = GameObject.Find("GameManager").GetComponent<AC_WeekEnd>();
 
-        // Does first check so the games music can start.
-        MoralityUpdate();
     }
     void Update()
     {
@@ -212,5 +212,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
             currentAverageMorality = "SuperHero";
             audioManager.superheroMorality = true;
         }
+
+        audioManager.ChangeBackgroundMusic();
     }
 }

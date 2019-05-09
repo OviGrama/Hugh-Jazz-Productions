@@ -33,6 +33,9 @@ public class AC_AudioManager : MonoBehaviour
         // Starts the game on normal background music.
         audioSource = GetComponent<AudioSource>();
 
+        //
+        audioSource.clip = neutralMusic;
+        audioSource.Play();
     }
 
     // Update is called once per frame
