@@ -24,6 +24,7 @@ public class AC_YearEnd : MonoBehaviour
     // Variables that hold the number of students that graduate.
     public int[] numberOfGraduates;
     public int numberOfSuperGraduates;
+    public int graduatestsForYear;
     public int nonGraduatestsForYear;
     // Variables that hold what students do when they graduate.
     public int numberOfNormies;
@@ -43,8 +44,10 @@ public class AC_YearEnd : MonoBehaviour
     private int currentStudentHAP;
     private int currentStudentALI;
 
-    public int passRate;
+    public float passValue;
+    public int passPercentage;
     public int currentYear;
+    public int yearSize;
 
     //
     private int currentRep;
@@ -79,6 +82,8 @@ public class AC_YearEnd : MonoBehaviour
 
     public void Graduation()
     {
+        currentYear = timeUI.in_year;
+        yearSize = studentSpawner.numberOfStudents;
         currentRep = schoolStats.currentRep;
 
         for (int i = 0; i < studentSpawner.go_studentList.Length; i++)
@@ -97,7 +102,7 @@ public class AC_YearEnd : MonoBehaviour
                 if (currentStudentEQ + currentStudentIQ + currentStudentFL >= studentPassGrade)
                 {
                     // Increase the number of graduates.
-                    numberOfGraduates[timeUI.in_year - 2]++;
+                    numberOfGraduates[currentYear - 2]++;
 
                     // Is the graduate a super.
                     if (currentStudentSL >= superPassGrade)
@@ -143,11 +148,14 @@ public class AC_YearEnd : MonoBehaviour
             }
         }
 
+        graduatestsForYear = numberOfGraduates[currentYear - 2];
+
+        PassPercentage();
+       
         if (nonGraduatestsForYear > 0)
         {
-            currentRep -= Mathf.RoundToInt(nonGraduatestsForYear / schoolStats.currentAvgHappy);
+            currentRep -= passPercentage / 10;
         }
-
 
         // Number of Hero and Villian in the world.
 
@@ -228,16 +236,12 @@ public class AC_YearEnd : MonoBehaviour
         }
 
 
-        currentYear = timeUI.in_year;
         // Ends the game if 25 years have passed.
         if (currentYear == 26)
         {
+            Debug.Log("25 Years Retirment");
             gameOver.Year25RetirementEnd();
         }
-
-        
-        // Sets students number based of graduation results.
-        passRate = Mathf.RoundToInt( numberOfGraduates[currentYear] / studentSpawner.numberOfStudents );
 
         // Budget increase for the year.
         schoolStats.currentMoney += 30000 + (currentRep * 500);
@@ -254,5 +258,15 @@ public class AC_YearEnd : MonoBehaviour
 
         studentSpawner.SpawnStudents();
 
+    }
+
+     void PassPercentage()
+     {
+        // Sets students number based of graduation results.
+        Debug.Log("Pass Percentage");
+        //passValue = graduatestsForYear / studentSpawner.numberOfStudents;
+        
+        passPercentage = Mathf.RoundToInt((graduatestsForYear / yearSize) * 100);
+        Debug.Log(passPercentage);
     }
 }
