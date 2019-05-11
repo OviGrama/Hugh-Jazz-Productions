@@ -7,6 +7,8 @@ public class JH_Staff_Move : MonoBehaviour
 {
 
     public JH_Set_Class.ClassName classTaught;
+    private JH_Staff_Manager staffManager;
+    private SpriteRenderer sr_staff;
     private NavMeshAgent nv_staff;
     private GameObject go_classManager;
     private GameObject go_timeManager;
@@ -18,12 +20,41 @@ public class JH_Staff_Move : MonoBehaviour
         nv_staff = GetComponent<NavMeshAgent>();
         go_classManager = GameObject.Find("ClassDrops");
         go_timeManager = GameObject.Find("Date/TimePanel");
+        staffManager = GameObject.Find("Game").GetComponent<JH_Staff_Manager>();
+        sr_staff = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateClass();
+    }
+
+    public void SetAppearance()
+    {
+        if (classTaught == JH_Set_Class.ClassName.Literature) sr_staff.sprite = staffManager.staffLiterature;
+        if (classTaught == JH_Set_Class.ClassName.Advanced_Literature) sr_staff.sprite = staffManager.staffAdvancedLiterature;
+        if (classTaught == JH_Set_Class.ClassName.Citizenship) sr_staff.sprite = staffManager.staffCitizenship;
+        if (classTaught == JH_Set_Class.ClassName.Advanced_Citizenship) sr_staff.sprite = staffManager.staffAdvancedCitizenship;
+        if (classTaught == JH_Set_Class.ClassName.BasicScience) sr_staff.sprite = staffManager.staffBasicScience;
+        if (classTaught == JH_Set_Class.ClassName.Psychology) sr_staff.sprite = staffManager.staffPsychology;
+        if (classTaught == JH_Set_Class.ClassName.Physiology) sr_staff.sprite = staffManager.staffPhysiology;
+        if (classTaught == JH_Set_Class.ClassName.Advanced_Science) sr_staff.sprite = staffManager.staffAdvancedScience;
+        if (classTaught == JH_Set_Class.ClassName.Persuasion_Hero) sr_staff.sprite = staffManager.staffPersuasionHero;
+        if (classTaught == JH_Set_Class.ClassName.Persuasion_Villain) sr_staff.sprite = staffManager.staffPersuasionVillain;
+        if (classTaught == JH_Set_Class.ClassName.Genetics_Hero) sr_staff.sprite = staffManager.staffGeneticsHero;
+        if (classTaught == JH_Set_Class.ClassName.Genetics_Villain) sr_staff.sprite = staffManager.staffGeneticsVillain;
+        if (classTaught == JH_Set_Class.ClassName.Sport) sr_staff.sprite = staffManager.staffSport;
+        if (classTaught == JH_Set_Class.ClassName.Gym) sr_staff.sprite = staffManager.staffGym;
+        if (classTaught == JH_Set_Class.ClassName.Advanced_Gym) sr_staff.sprite = staffManager.staffAdvancedGym;
+        if (classTaught == JH_Set_Class.ClassName.Meditation) sr_staff.sprite = staffManager.staffMeditation;
+        if (classTaught == JH_Set_Class.ClassName.Advanced_Meditation) sr_staff.sprite = staffManager.staffAdvancedMeditation;
+        if (classTaught == JH_Set_Class.ClassName.Super101) sr_staff.sprite = staffManager.staffSuper101;
+        if (classTaught == JH_Set_Class.ClassName.Super201) sr_staff.sprite = staffManager.staffSuper201;
+        if (classTaught == JH_Set_Class.ClassName.Physical_Development) sr_staff.sprite = staffManager.staffPhysicalDevelopment;
+        if (classTaught == JH_Set_Class.ClassName.Mental_Development) sr_staff.sprite = staffManager.staffMentalDevelopment;
+        if (classTaught == JH_Set_Class.ClassName.Responsible_Power_Management) sr_staff.sprite = staffManager.staffResponsiblePowerManagement;
+        if (classTaught == JH_Set_Class.ClassName.Maximising_Power_Potential) sr_staff.sprite = staffManager.staffMaximisingPowerPotential;
     }
 
     void UpdateClass()
