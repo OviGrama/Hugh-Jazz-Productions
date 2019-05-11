@@ -32,10 +32,6 @@ public class AC_AudioManager : MonoBehaviour
 
         // Starts the game on normal background music.
         audioSource = GetComponent<AudioSource>();
-
-        //
-        audioSource.clip = neutralMusic;
-        audioSource.Play();
     }
 
     // Update is called once per frame
@@ -48,37 +44,52 @@ public class AC_AudioManager : MonoBehaviour
     {
         if (superheroMorality == true)
         {
-            audioSource.clip = superheroMusic;
-            audioSource.Play();
-            superheroMorality = false;
+            if (audioSource.clip == !superheroMusic)
+            {
+                audioSource.clip = superheroMusic;
+                audioSource.Play();
+                superheroMorality = false;
+            }
         }
 
         if (heroMorality == true)
         {
-            audioSource.clip = heroMusic;
-            audioSource.Play();
-            heroMorality = false;
+            if (audioSource.clip == !heroMusic)
+            {
+                audioSource.clip = heroMusic;
+                audioSource.Play();
+                heroMorality = false;
+            }
         }
 
         if (neutralMorality == true)
         {
-            audioSource.clip = neutralMusic;
-            audioSource.Play();
-            neutralMorality = false;
+            if (audioSource.clip == !neutralMusic)
+            {
+                audioSource.clip = neutralMusic;
+                audioSource.Play();
+                neutralMorality = false;
+            }
         }
 
         if (villainMorality == true)
         {
-            audioSource.clip = villainMusic;
-            audioSource.Play();
-            villainMorality = false;
+            if (audioSource.clip == !villainMusic)
+            {
+                audioSource.clip = villainMusic;
+                audioSource.Play();
+                villainMorality = false;
+            }
         }
 
         if (supervillainMorality == true)
         {
-            audioSource.clip = supervillainMusic;
-            audioSource.Play();
-            supervillainMorality = false;
+            if (audioSource.clip == !supervillainMusic)
+            {
+                audioSource.clip = supervillainMusic;
+                audioSource.Play();
+                supervillainMorality = false;
+            }
         }
     }
 }

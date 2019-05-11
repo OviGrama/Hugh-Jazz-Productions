@@ -17,7 +17,8 @@ public class AC_WeekEnd : MonoBehaviour
     public int currentAverageHAP;
     public int currentAverageALI;
 
-
+    //
+    public int currentRep;
 
     // Start is called before the first frame update.
     void Awake()
@@ -38,6 +39,13 @@ public class AC_WeekEnd : MonoBehaviour
     public void WeeklyStudentUpdate()
     {
         Debug.Log("Week Update");
+
+        //
+        Debug.Log("Reducing Rep");
+        schoolStats.schoolRep--;
+        currentRep = schoolStats.schoolRep;
+        Debug.Log(currentRep);
+
         currentTotalHAP = 0;
         currentTotalALI = 0;
 

@@ -41,8 +41,8 @@ public class AC_SchoolStatsManager : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AC_AudioManager>();
         randomEvents = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
         weekEnd = GameObject.Find("GameManager").GetComponent<AC_WeekEnd>();
-
     }
+
     void Update()
     {
         // Checks to see if any school stat has chnaged.
@@ -69,6 +69,11 @@ public class AC_SchoolStatsManager : MonoBehaviour
             StatsUpdate();
             audioManager.ChangeBackgroundMusic();
         }
+    }
+
+    public void FirstUpdate()
+    {
+        weekEnd.WeeklyStudentUpdate();
     }
 
     //Updates the school money stat.

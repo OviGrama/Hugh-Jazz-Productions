@@ -8,6 +8,7 @@ public class JH_Time_UI : MonoBehaviour
     // Connects to AC_YearEnd script so graduation function can be called by this script.
     private AC_YearEnd yearEnd;
     private AC_WeekEnd weekEnd;
+    private AC_SchoolStatsManager schoolStats;
 
     public Text tx_year;
     public Text tx_week;
@@ -51,6 +52,7 @@ public class JH_Time_UI : MonoBehaviour
         // So the this script doesnt lose the reference to the AC_YearEnd script.
         yearEnd = GameObject.Find("GameManager").GetComponent<AC_YearEnd>();
         weekEnd = GameObject.Find("GameManager").GetComponent<AC_WeekEnd>();
+        schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
 
         go_classManagers = new GameObject[3];
         in_time = 6;
@@ -104,8 +106,22 @@ public class JH_Time_UI : MonoBehaviour
         }
     }
 
+    public bool firstUpdate;
+
     IEnumerator TimeUpdate()
     {
+        if (firstUpdate == false)
+        {
+            yearEnd.FirstYear();
+            schoolStats.FirstUpdate();
+            firstUpdate = true;
+
+            // pause game
+            // pause needs to disable all other UI
+            // open timetable
+            // have close button turned off until all classes are filled.
+        }
+
         bl_changeTime = false;
         yield return new WaitForSeconds(fl_secondsPerHour);
         if (in_time < 23)

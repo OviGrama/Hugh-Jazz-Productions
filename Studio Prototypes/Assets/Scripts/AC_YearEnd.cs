@@ -24,8 +24,8 @@ public class AC_YearEnd : MonoBehaviour
     // Variables that hold the number of students that graduate.
     public int[] numberOfGraduates;
     public int numberOfSuperGraduates;
-    public int graduatestsForYear;
-    public int nonGraduatestsForYear;
+    public int graduatesForYear;
+    public int nongraduatesForYear;
     // Variables that hold what students do when they graduate.
     public int numberOfNormies;
     public int numberOfHeroes;
@@ -80,11 +80,18 @@ public class AC_YearEnd : MonoBehaviour
 
     }
 
+    public void FirstYear()
+    {
+        currentYear = timeUI.in_year;
+        yearSize = studentSpawner.numberOfStudents;
+        currentRep = schoolStats.schoolRep;
+    }
+
     public void Graduation()
     {
         currentYear = timeUI.in_year;
         yearSize = studentSpawner.numberOfStudents;
-        currentRep = schoolStats.currentRep;
+        currentRep = schoolStats.schoolRep;
 
         for (int i = 0; i < studentSpawner.go_studentList.Length; i++)
         {
@@ -143,16 +150,16 @@ public class AC_YearEnd : MonoBehaviour
                 }
                 else
                 { 
-                    nonGraduatestsForYear++;
+                    nongraduatesForYear++;
                 }
             }
         }
 
-        graduatestsForYear = numberOfGraduates[currentYear - 2];
+        graduatesForYear = numberOfGraduates[currentYear - 2];
 
         PassPercentage();
        
-        if (nonGraduatestsForYear > 0)
+        if (nongraduatesForYear > 0)
         {
             currentRep -= passPercentage / 10;
         }
@@ -258,15 +265,17 @@ public class AC_YearEnd : MonoBehaviour
 
         studentSpawner.SpawnStudents();
 
+        schoolStats.schoolRep = currentRep;
+
     }
 
      void PassPercentage()
      {
         // Sets students number based of graduation results.
         Debug.Log("Pass Percentage");
-        //passValue = graduatestsForYear / studentSpawner.numberOfStudents;
+        //passValue = graduatesForYear / studentSpawner.numberOfStudents;
         
-        passPercentage = Mathf.RoundToInt((graduatestsForYear / yearSize) * 100);
-        Debug.Log(passPercentage);
+        passValue = (graduatesForYear / yearSize) * 100;
+        Debug.Log(passValue);
     }
 }

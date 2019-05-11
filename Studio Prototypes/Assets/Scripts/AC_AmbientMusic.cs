@@ -30,13 +30,16 @@ public class AC_AmbientMusic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        inRoom = true;
-        audioSource.Play();
+        if (!audioSource.isPlaying)
+        {
+            inRoom = true;
+            audioSource.Play();
+        }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        inRoom = false;
-            audioSource.Stop();
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    inRoom = false;
+    //    audioSource.Stop();
+    //}
 }

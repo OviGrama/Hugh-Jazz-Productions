@@ -8,6 +8,7 @@ public class JH_Upgrade : MonoBehaviour
     private AC_SchoolStatsManager sc_schoolStats;
     public bool bl_canBuy;
     public int in_upgradeCost;
+    public int repIncrease;
     public GameObject[] go_enable;
     public GameObject[] go_disable;
     public GameObject[] go_unlock;
@@ -96,6 +97,7 @@ public class JH_Upgrade : MonoBehaviour
         if (in_upgradeCost != 0)
         {
             sc_schoolStats.currentMoney -= in_upgradeCost;
+            sc_schoolStats.schoolRep += repIncrease;
         }
     }
 
