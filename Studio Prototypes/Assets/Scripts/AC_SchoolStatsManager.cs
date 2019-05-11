@@ -133,7 +133,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
 
         if (currentRep < 15)
         {
-            currentSchoolReputation = "Terriable";
+            currentSchoolReputation = "Terrible";
             randomEvents.badRep = true;
         }
         else if (currentRep >= 15 && currentRep < 35)

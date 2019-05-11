@@ -9,6 +9,7 @@ public class AC_WeekEnd : MonoBehaviour
     private JH_Student_Manager studentSpawner;
     //
     private AC_SchoolStatsManager schoolStats;
+    private AC_GameOver gameOver;
 
     // Variables to hold the current student that is being checked, stats.
     public int currentTotalHAP;
@@ -19,6 +20,7 @@ public class AC_WeekEnd : MonoBehaviour
 
     //
     public int currentRep;
+    public int lowRepTally;
 
     // Start is called before the first frame update.
     void Awake()
@@ -28,8 +30,14 @@ public class AC_WeekEnd : MonoBehaviour
 
         //
         schoolStats = GameObject.Find("SchoolStatDropDown").GetComponent<AC_SchoolStatsManager>();
+        //
+        gameOver = GameObject.Find("GameManager").GetComponent<AC_GameOver>();
     }
 
+    private void Start()
+    {
+
+    }
     // Update is called once per frame.
     void Update()
     {
@@ -39,12 +47,28 @@ public class AC_WeekEnd : MonoBehaviour
     public void WeeklyStudentUpdate()
     {
         Debug.Log("Week Update");
-
+        
         //
         Debug.Log("Reducing Rep");
         schoolStats.schoolRep--;
         currentRep = schoolStats.schoolRep;
         Debug.Log(currentRep);
+
+        if (currentRep < 35 && lowRepTally != 20)
+        {
+            lowRepTally++;
+        }
+
+        if (currentRep >= 35 && lowRepTally != 0)
+        {
+            lowRepTally--;
+        }
+
+        // Fired Ending
+        if (lowRepTally == 20)
+        {
+            gameOver.EarlyRetirementEnd();
+        }
 
         currentTotalHAP = 0;
         currentTotalALI = 0;
