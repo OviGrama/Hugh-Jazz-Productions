@@ -12,6 +12,7 @@ public class JH_TextFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (go_targetObject == null) go_targetObject = Camera.main.gameObject;
         c_objectFade = GetComponent<MeshRenderer>().material.color;
     }
 
