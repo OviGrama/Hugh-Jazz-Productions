@@ -149,7 +149,7 @@ public class AC_YearEnd : MonoBehaviour
                     }
                 }
                 else
-                { 
+                {
                     nongraduatesForYear++;
                 }
             }
@@ -158,7 +158,7 @@ public class AC_YearEnd : MonoBehaviour
         graduatesForYear = numberOfGraduates[currentYear - 2];
 
         PassPercentage();
-       
+
         if (nongraduatesForYear > 0)
         {
             currentRep -= passPercentage / 10;
@@ -214,6 +214,12 @@ public class AC_YearEnd : MonoBehaviour
                     worldState.villainWorld = false;
                 }
             }
+
+            // Villain End
+            if (superDifference > 150)
+            {
+                gameOver.VillainDestructionEnd();
+            }
         }
         else
         {
@@ -226,6 +232,12 @@ public class AC_YearEnd : MonoBehaviour
                     worldState.heroWorld = false;
                     worldState.villainWorld = false;
                 }
+            }
+
+            // Hero End
+            if (superDifference > 150)
+            {
+                gameOver.HeroPeaceEnd();
             }
         }
 
@@ -269,12 +281,12 @@ public class AC_YearEnd : MonoBehaviour
 
     }
 
-     void PassPercentage()
-     {
+    void PassPercentage()
+    {
         // Sets students number based of graduation results.
         Debug.Log("Pass Percentage");
         //passValue = graduatesForYear / studentSpawner.numberOfStudents;
-        
+
         passValue = (graduatesForYear / yearSize) * 100;
         Debug.Log(passValue);
     }
