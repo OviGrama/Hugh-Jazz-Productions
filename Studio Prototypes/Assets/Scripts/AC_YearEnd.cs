@@ -23,6 +23,7 @@ public class AC_YearEnd : MonoBehaviour
     public int superPassGrade;
     // Variables that hold the number of students that graduate.
     public int[] numberOfGraduates;
+    public int[] numberOfNonGraduates;
     public int numberOfSuperGraduates;
     public int graduatesForYear;
     public int nongraduatesForYear;
@@ -84,7 +85,6 @@ public class AC_YearEnd : MonoBehaviour
     public void FirstYear()
     {
         currentYear = timeUI.in_year;
-        currentWeek = timeUI.in_week;
         yearSize = studentSpawner.numberOfStudents;
         currentRep = schoolStats.schoolRep;
     }
@@ -152,12 +152,13 @@ public class AC_YearEnd : MonoBehaviour
                 }
                 else
                 {
-                    nongraduatesForYear++;
+                    numberOfNonGraduates[currentYear - 2]++;
                 }
             }
         }
 
         graduatesForYear = numberOfGraduates[currentYear - 2];
+        nongraduatesForYear = numberOfNonGraduates[currentYear - 2];
 
         PassPercentage();
 
