@@ -47,6 +47,7 @@ public class AC_YearEnd : MonoBehaviour
     public float passValue;
     public int passPercentage;
     public int currentYear;
+    public int currentWeek;
     public int yearSize;
 
     //
@@ -83,6 +84,7 @@ public class AC_YearEnd : MonoBehaviour
     public void FirstYear()
     {
         currentYear = timeUI.in_year;
+        currentWeek = timeUI.in_week;
         yearSize = studentSpawner.numberOfStudents;
         currentRep = schoolStats.schoolRep;
     }

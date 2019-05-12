@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class AC_GameOver : MonoBehaviour
 {
+    // Stats to be displayed.
+    // Time played, years and weeks.
+    // Number of hero graduates.
+    // Number of villain graduates.
+    // Number of failed graduates.
+
+
+
     // Start is called before the first frame update
     void Start()
     {
