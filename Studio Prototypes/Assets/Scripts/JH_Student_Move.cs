@@ -81,7 +81,14 @@ public class JH_Student_Move : MonoBehaviour {
                 if (go_timeManager.GetComponent<JH_Time_UI>().in_time >= 11 &&
                     go_timeManager.GetComponent<JH_Time_UI>().in_time < 13)
                 {
-                    nv_student.destination = go_classManagers[in_classNumber].GetComponent<JH_Assign_Class>().go_canteen.transform.position;
+                    if (go_studentManager.GetComponent<JH_Unlock_Canteen>().bl_canteenUnlocked)
+                    {
+                        nv_student.destination = go_classManagers[in_classNumber].GetComponent<JH_Assign_Class>().go_canteen.transform.position;
+                    }
+                    else
+                    {
+                        nv_student.destination = go_classManagers[in_classNumber].GetComponent<JH_Assign_Class>().go_hallway.transform.position;
+                    }
                 }
                 // Go to the assigned class
                 else

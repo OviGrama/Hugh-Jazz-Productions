@@ -12,6 +12,7 @@ public class JH_Staff_Move : MonoBehaviour
     private NavMeshAgent nv_staff;
     private GameObject go_classManager;
     private GameObject go_timeManager;
+    private GameObject go_canteenCheck;
     public Vector3 v3_positionOffset;
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class JH_Staff_Move : MonoBehaviour
         nv_staff = GetComponent<NavMeshAgent>();
         go_classManager = GameObject.Find("ClassDrops");
         go_timeManager = GameObject.Find("Date/TimePanel");
+        go_canteenCheck = GameObject.Find("Game");
 
     }
 
@@ -160,7 +162,14 @@ public class JH_Staff_Move : MonoBehaviour
             }
             else
             {
-                nv_staff.destination = go_classManager.GetComponent<JH_Assign_Class>().go_canteen.transform.position + v3_positionOffset;
+                if (go_canteenCheck.GetComponent<JH_Unlock_Canteen>().bl_canteenUnlocked)
+                {
+                    nv_staff.destination = go_classManager.GetComponent<JH_Assign_Class>().go_canteen.transform.position + v3_positionOffset;
+                }
+                else
+                {
+                    nv_staff.destination = go_classManager.GetComponent<JH_Assign_Class>().go_hallway.transform.position;
+                }
             }
         }
         else
