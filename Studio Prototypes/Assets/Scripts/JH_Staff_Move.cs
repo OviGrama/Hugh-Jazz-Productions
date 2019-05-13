@@ -20,8 +20,7 @@ public class JH_Staff_Move : MonoBehaviour
         nv_staff = GetComponent<NavMeshAgent>();
         go_classManager = GameObject.Find("ClassDrops");
         go_timeManager = GameObject.Find("Date/TimePanel");
-        staffManager = GameObject.Find("Game").GetComponent<JH_Staff_Manager>();
-        sr_staff = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -32,6 +31,9 @@ public class JH_Staff_Move : MonoBehaviour
 
     public void SetAppearance()
     {
+        sr_staff = GetComponentInChildren<SpriteRenderer>();
+        staffManager = GameObject.Find("Game").GetComponent<JH_Staff_Manager>();
+
         if (classTaught == JH_Set_Class.ClassName.Literature) sr_staff.sprite = staffManager.staffLiterature;
         if (classTaught == JH_Set_Class.ClassName.Advanced_Literature) sr_staff.sprite = staffManager.staffAdvancedLiterature;
         if (classTaught == JH_Set_Class.ClassName.Citizenship) sr_staff.sprite = staffManager.staffCitizenship;
