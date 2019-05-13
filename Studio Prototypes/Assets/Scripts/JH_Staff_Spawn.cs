@@ -11,7 +11,7 @@ public class JH_Staff_Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        assignClass = GameObject.Find("ClassDrops").GetComponent<JH_Assign_Class>();
     }
 
     // Update is called once per frame
