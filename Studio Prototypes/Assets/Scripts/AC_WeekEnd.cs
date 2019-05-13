@@ -57,6 +57,11 @@ public class AC_WeekEnd : MonoBehaviour
     {
         Debug.Log("Week Update");
         yearEnd.currentWeek = timeUI.in_week;
+        if (yearEnd.currentWeek == 40)
+        {
+            yearEnd.currentWeek = 1;
+        }
+
         //
         Debug.Log("Reducing Rep");
         schoolStats.schoolRep--;

@@ -25,8 +25,8 @@ public class AC_YearEnd : MonoBehaviour
     public int[] numberOfGraduates;
     public int[] numberOfNonGraduates;
     public int numberOfSuperGraduates;
-    public int graduatesForYear;
-    public int nongraduatesForYear;
+    public float graduatesForYear;
+    public float nongraduatesForYear;
     // Variables that hold what students do when they graduate.
     public int numberOfNormies;
     public int numberOfHeroes;
@@ -47,10 +47,12 @@ public class AC_YearEnd : MonoBehaviour
 
     public float passValue;
     public int passPercentage;
+    public float failValue;
+    public int failPercentage;
     public int currentYear;
     public int currentWeek;
-    public int yearSize;
-
+    public float yearSize;
+    public int studentIncrease;
     //
     private int currentRep;
 
@@ -162,11 +164,6 @@ public class AC_YearEnd : MonoBehaviour
 
         PassPercentage();
 
-        if (nongraduatesForYear > 0)
-        {
-            currentRep -= passPercentage / 10;
-        }
-
         // Number of Hero and Villian in the world.
 
         // Resets world state booleans.
@@ -271,11 +268,68 @@ public class AC_YearEnd : MonoBehaviour
         // Limits number of students to form sizes.
         if (studentSpawner.in_dormUpgrades != 0)
         {
-            studentSpawner.in_spawnAmount = 9 * studentSpawner.in_dormUpgrades;
+            studentSpawner.in_spawnAmount = Mathf.RoundToInt(yearSize) + studentIncrease;
+
+            if (studentSpawner.in_dormUpgrades == 1)
+            {
+                if (studentSpawner.in_spawnAmount > 18)
+                {
+                    studentSpawner.in_spawnAmount = 18;
+                }
+                else if (studentSpawner.in_spawnAmount < 0)
+                {
+                    gameOver.EarlyRetirementEnd();
+                }
+            }
+
+            if (studentSpawner.in_dormUpgrades == 2)
+            {
+                if (studentSpawner.in_spawnAmount > 27)
+                {
+                    studentSpawner.in_spawnAmount = 27;
+                }
+                else if (studentSpawner.in_spawnAmount < 0)
+                {
+                    gameOver.EarlyRetirementEnd();
+                }
+            }
+
+            if (studentSpawner.in_dormUpgrades == 3)
+            {
+                if (studentSpawner.in_spawnAmount > 36)
+                {
+                    studentSpawner.in_spawnAmount = 36;
+                }
+                else if (studentSpawner.in_spawnAmount < 0)
+                {
+                    gameOver.EarlyRetirementEnd();
+                }
+            }
+
+            if (studentSpawner.in_dormUpgrades == 4)
+            {
+                if (studentSpawner.in_spawnAmount > 45)
+                {
+                    studentSpawner.in_spawnAmount = 45;
+                }
+                else if (studentSpawner.in_spawnAmount < 0)
+                {
+                    gameOver.EarlyRetirementEnd();
+                }
+            }
         }
         else
         {
-            studentSpawner.in_spawnAmount = 9;
+            studentSpawner.in_spawnAmount = Mathf.RoundToInt(yearSize) + studentIncrease;
+
+            if (studentSpawner.in_spawnAmount > 9)
+            {
+                studentSpawner.in_spawnAmount = 9;
+            }
+            else if (studentSpawner.in_spawnAmount < 0)
+            {
+                gameOver.EarlyRetirementEnd();
+            }
         }
 
         studentSpawner.SpawnStudents();
@@ -288,9 +342,24 @@ public class AC_YearEnd : MonoBehaviour
     {
         // Sets students number based of graduation results.
         Debug.Log("Pass Percentage");
-        //passValue = graduatesForYear / studentSpawner.numberOfStudents;
 
-        passValue = (graduatesForYear / yearSize) * 100;
-        Debug.Log(passValue);
+        if (graduatesForYear > 0)
+        {
+            passValue = graduatesForYear / yearSize;
+            Debug.Log(passValue);
+            passPercentage = Mathf.RoundToInt(passValue * 100);
+            currentRep += Mathf.RoundToInt(passPercentage / 10);
+            studentIncrease += Mathf.RoundToInt(passPercentage / 20);
+        }
+
+        if (nongraduatesForYear > 0)
+        {
+            failValue = (nongraduatesForYear / yearSize);
+            Debug.Log(failValue);
+            failPercentage = Mathf.RoundToInt(failValue * 100);
+            currentRep -= Mathf.RoundToInt(failPercentage / 10);
+            studentIncrease -= Mathf.RoundToInt(failPercentage / 20);
+        }
+
     }
 }
