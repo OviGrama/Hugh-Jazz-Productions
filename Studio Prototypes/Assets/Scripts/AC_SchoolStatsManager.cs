@@ -9,6 +9,7 @@ public class AC_SchoolStatsManager : MonoBehaviour
     private AC_AudioManager audioManager;
     private OG_RandomEvents randomEvents;
     private AC_WeekEnd weekEnd;
+    private JH_Time_UI timeUI;
 
     // Varaibles for the dropdown itself.
     public Dropdown dd_SchoolStats;
@@ -19,6 +20,12 @@ public class AC_SchoolStatsManager : MonoBehaviour
     public int dd_SchoolStats_Index;
     public string dd_CurrentMessage;
     public Text dd_SSText;
+    public GameObject timetableButton;
+    public GameObject timetableTutorial;
+    public GameObject timetableCloseButton;
+    public GameObject upgradesButton;
+    public GameObject infoButton;
+    public GameObject worldstateButton;
 
     // Variables for the dropdown content.
     public int currentMoney;
@@ -36,11 +43,13 @@ public class AC_SchoolStatsManager : MonoBehaviour
     public string currentAverageHappiness;
     public string currentAverageMorality;
 
-    private void Awake()
+    private void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AC_AudioManager>();
         randomEvents = GameObject.Find("GameManager").GetComponent<OG_RandomEvents>();
         weekEnd = GameObject.Find("GameManager").GetComponent<AC_WeekEnd>();
+        timeUI = GameObject.Find("Date/TimePanel").GetComponent<JH_Time_UI>();
+
     }
 
     void Update()
@@ -74,6 +83,29 @@ public class AC_SchoolStatsManager : MonoBehaviour
     public void FirstUpdate()
     {
         weekEnd.WeeklyStudentUpdate();
+        TimetableTutorial();
+    }
+
+    public void TimetableTutorial()
+    {
+        timeUI.PauseButton();
+        timetableButton.transform.parent.GetComponent<JH_ClickButton>().ButtonClick();
+        upgradesButton.GetComponent<Button>().interactable = false;
+        infoButton.GetComponent<Button>().interactable = false;
+        worldstateButton.GetComponent<Button>().interactable = false;
+        timetableCloseButton.GetComponent<Button>().interactable = false;
+        timetableButton.GetComponent<Button>().interactable = false;
+
+        //// if all classes are filled set these values
+        //timetableTutorial.SetActive(false);
+        //timetableButton.GetComponent<Button>().interactable = true;
+        //timetableCloseButton.GetComponent<Button>().interactable = true;
+        //upgradesButton.GetComponent<Button>().interactable = true;
+        //infoButton.GetComponent<Button>().interactable = true;
+        //worldstateButton.GetComponent<Button>().interactable = true;
+
+        ////when panel closes
+        //timeUI.PlayButton();
     }
 
     //Updates the school money stat.
